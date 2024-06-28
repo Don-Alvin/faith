@@ -5,6 +5,7 @@ import About from "./pages/About"
 import Listings from "./pages/Listings"
 import Blog from "./pages/Blog"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { HelmetProvider } from "react-helmet-async"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,7 +25,9 @@ const queryClient = new QueryClient()
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
     </QueryClientProvider>
     
   )
