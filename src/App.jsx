@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import About from "./pages/About"
 import Listings from "./pages/Listings"
 import Blog from "./pages/Blog"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,9 +19,14 @@ const router = createBrowserRouter(
   )
 )
 
+const queryClient = new QueryClient()
+
 const App = () => {
   return (
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+    
   )
 }
 
