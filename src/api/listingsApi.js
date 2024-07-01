@@ -5,7 +5,8 @@ export const getListings = async() => {
     try{
         const q = query(collection(db, "listings"))
         const response = await getDocs(q)
-        const projects = response.docs.map((document) => document.data())
+        const listings = response.docs.map((document) => document.data())
+        return listings
     }catch (error){
         throw new Error('Could not fetch listings')
     }

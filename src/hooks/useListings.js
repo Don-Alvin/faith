@@ -3,7 +3,7 @@ import { getListings } from "../api/listingsApi";
 
 export const useListings = () => {
 	const {
-		isFetching: isInitialLoading,
+		isFetching: isLoading,
 		error,
 		isError,
 		data: listings,
@@ -12,5 +12,5 @@ export const useListings = () => {
 		queryFn: getListings,
 	});
 
-	return { isInitialLoading, error, isError, listings };
+	return { isLoading, error, isError, listings };
 };
