@@ -6,6 +6,7 @@ export const getBlogs = async() => {
         const q = query(collection(db, "blogs"))
         const response = await getDocs(q)
         const blogs = response.docs.map((document) => document.data())
+        return blogs
     }catch (error){
         throw new Error('Could not fetch listings')
     }

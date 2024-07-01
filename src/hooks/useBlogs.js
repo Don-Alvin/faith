@@ -11,4 +11,6 @@ export const useBlogs = () => {
         queryKey: ['blogs'],
         queryFn: getBlogs
     })
+    
+    return {isLoading, isError, error, blogs}
 }
