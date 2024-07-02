@@ -1,22 +1,22 @@
 import { PulseLoader } from "react-spinners";
-import { Card, CardContent, CardHeader } from "../ui/card";
-import { Button } from "../ui/button";
+import { useBlogs } from "../hooks/useBlogs";
 import { Link } from "react-router-dom";
-import { useBlogs } from "../../hooks/useBlogs";
+import { Card, CardContent, CardHeader } from "../components/ui/card";
+import MetaData from "../components/Meta/meta";
 
 const Blogs = () => {
 
   const {isLoading, isError, error, blogs} = useBlogs()
 
   let content;
-  let limit = 4;
 
   if(isLoading) content = <PulseLoader color='#BB7F10' />
+  if(isError) content = <p>Oooop! We encountered an error: {error}</p>
 
   if(blogs) {
     content = (
       <div className="flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-4 ">
-        {blogs.slice(0,limit)?.map(blog => (
+        {blogs?.map(blog => (
           <Link key={blog.id}>
             <Card className='rounded w-full border flex flex-col gap-2 items-center p-2' >
               <CardHeader className='w-full flex justify-center' >
@@ -40,19 +40,14 @@ const Blogs = () => {
   }
 
   return (
-    <section className="p-4 flex flex-col gap-4">
-      <div className="flex justify-between items-center">
-        <h2 className="font-semibold text-4xl text-xl text-primary">Our <span className="text-secondary">Blogs</span> </h2>
-        <Link to='listings' className="font-semibold text-sm">View more blogs</Link>
-      </div>
-      <div>
+    <section className='p-6 mt-10'>
+      <MetaData title={'All Blogs'} />
+      <header className='my-2 flex font-semibold justify-between items-center'>
+        <h2 className='text-gray-700 font-semibold text-xl'>Blogs</h2>
+      </header>
+      <article className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 my-4'>
         {content}
-      </div>
-      <div className="w-full flex justify-center">
-        <Link to='/blogs'>
-          <Button className='rounded bg-secondary text-white p-3'>View more blogs</Button>
-        </Link>
-      </div>
+      </article>
     </section>
   )
 }
