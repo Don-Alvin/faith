@@ -17,7 +17,7 @@ const Blogs = () => {
     content = (
       <div className="flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-4 ">
         {blogs?.map(blog => (
-          <Link key={blog.id}>
+          <Link key={blog.id} to={`blogs/${blog.title}`}>
             <Card className='rounded w-full border flex flex-col gap-2 items-center p-2' >
               <CardHeader className='w-full flex justify-center' >
                 <img

@@ -3,8 +3,16 @@ import { useListings } from "../../hooks/useListings"
 import { Card, CardContent, CardHeader } from "../ui/card";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import BookModal from "../../Modal/BookModal";
 
 const Listings = () => {
+
+  const [isBookFormOpen, setIsBookFormOpen] = useState(false)
+
+  const handleBookMenu = () => {
+    setIsBookFormOpen(!isBookFormOpen)
+  }
 
   const {isLoading, isError, error, listings} = useListings()
 
@@ -32,10 +40,12 @@ const Listings = () => {
                  <p>{listing.Price}</p>
               </div>
               <div className="grid gap-2">
-                <Button className='bg-secondary rounded text-white p-2 text-sm'>Book Viewing</Button>
-                <Link className="text-sm medium">View more details</Link>
+                <Button onClick={handleBookMenu} className='bg-secondary rounded text-white p-2 text-sm'>Book Viewing</Button>
+                <Link className="text-sm medium" to={`listings/${listing.name}`}>View more details</Link>
               </div>
-             
+              {isBookFormOpen && (
+                <BookModal handleBookMenu={handleBookMenu} site={listing.name} />
+              )}
             </CardContent>
           </Card>
         ))}

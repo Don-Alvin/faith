@@ -19,7 +19,7 @@ const MenuModal = ({handleAuthMenu, navLinks}) => {
             <div className='text-[#111827] font-medium'>
                 <ul className='flex flex-col gap-3'>
                   {navLinks.map(({title, to}) => (
-                    <li className='text-white' onClick={handleAuthMenu}>
+                    <li key={to} className='text-white' onClick={handleAuthMenu}>
                         <Link to={to}>{title}</Link>
                     </li>
                   ))}  

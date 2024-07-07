@@ -1,6 +1,6 @@
 import { HomeIcon, MenuIcon, X } from 'lucide-react'
 import { useState } from 'react'
-import MenuModal from '../Modal/MenuModal'
+import MenuModal from '../../Modal/MenuModal'
 
 
 const MobileNav = () => {

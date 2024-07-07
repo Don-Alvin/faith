@@ -1,6 +1,6 @@
 import MainNav from "./MainNav"
 import { useMediaQuery } from "../../hooks/use-media-query"
-import MenuModal from "../Modal/MenuModal"
+import MenuModal from "../../Modal/MenuModal"
 import { useState } from "react"
 import MobileNav from "./MobileNav"
 

@@ -4,8 +4,16 @@ import { PulseLoader } from 'react-spinners'
 import { Card, CardContent, CardHeader } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import BookModal from '../Modal/BookModal';
 
 const Listings = () => {
+  const [isBookFormOpen, setIsBookFormOpen] = useState(false)
+
+  const handleBookMenu = () => {
+    setIsBookFormOpen(!isBookFormOpen)
+  }
+
   const { isLoading, error, listings, isError } = useListings()
 
   let content;
@@ -15,7 +23,7 @@ const Listings = () => {
 
   if(listings) {
     content = (
-      <div className="flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-4 ">
+      <div className="w-full flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-4 ">
         {listings?.map(listing => (
           <Card className='rounded w-full border flex flex-col gap-2 items-center p-2' key={listing.id}>
             <CardHeader className='w-full flex justify-center' >
@@ -32,10 +40,12 @@ const Listings = () => {
                  <p>{listing.Price}</p>
               </div>
               <div className="grid gap-2">
-                <Button className='bg-secondary rounded text-white p-2 text-sm'>Book Viewing</Button>
-                <Link className="text-sm medium">View more details</Link>
+                <Button className='bg-secondary rounded text-white p-2 text-sm' onClick={handleBookMenu}>Book Viewing</Button>
+                <Link className="text-sm medium" to={`listings/${listing.name}`}>View more details</Link>
               </div>
-             
+             {isBookFormOpen && (
+                <BookModal handleBookMenu={handleBookMenu} site={listing.name} />
+             )}
             </CardContent>
           </Card>
         ))}
@@ -45,14 +55,12 @@ const Listings = () => {
   
 
   return (
-    <section className='p-6 mt-10'>
+    <section className='p-6 mt-10 w-full'>
       <MetaData title={'All Listings'} />
       <header className='my-2 flex font-semibold justify-between items-center'>
         <h2 className='text-gray-700 font-semibold text-xl'>Listings</h2>
       </header>
-      <article className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 my-4'>
-        {content}
-      </article>
+      {content}
     </section>
   )
 }
