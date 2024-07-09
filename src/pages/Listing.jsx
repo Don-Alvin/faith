@@ -91,7 +91,7 @@ const Listing = () => {
             </div>
           </section>
           <section className='md:flex  mb-10 md:w-[30%]'>
-            <form className='w-full flex flex-col items-center gap-4' action="https://formsubmit.co/alvindon41@gmail.com">
+            <form className='w-full flex flex-col items-center gap-4' action="https://formsubmit.co/anadoomollo@zohomail.com">
               <h5 className='font-semibold'>Book viewing</h5>
               <div className='w-full md:w-[60%] flex flex-col gap-4'>
                 <div  className='grid gap-2 w-full'>

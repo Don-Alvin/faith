@@ -13,7 +13,7 @@ const Footer = () => {
           </div>
           <div className="flex gap-2">
             <Mail />
-            <span>alvindon41@gmail.com</span>
+            <span>anadoomollo@zohomail.com</span>
           </div>
         </div>
         <div className="flex gap-3">

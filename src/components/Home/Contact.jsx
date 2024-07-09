@@ -10,7 +10,7 @@ const Contact = () => {
         <h3 className="font-semibold text-2xl">Looking to sell or buy?</h3>
         <p className="text-xl text-center">Tell us more about your dreams or project and we will get back to you </p>
       </div>
-      <form className="grid gap-3" method="POST" action="https://formsubmit.co/alvindon41@gmail.com">
+      <form className="grid gap-3" method="POST" action="https://formsubmit.co/anadoomollo@zohomail.com">
         <div className="grid gap-2">
           <Label htmlFor='name'>Name</Label>
           <Input className='rounded p-3' id='name' type='text' name='name' required />

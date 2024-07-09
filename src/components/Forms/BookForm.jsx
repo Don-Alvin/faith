@@ -5,7 +5,7 @@ import { Button } from '../ui/button'
 
 const BookForm = ({site}) => {
   return (
-    <form className='w-full flex flex-col items-center gap-4' action="https://formsubmit.co/alvindon41@gmail.com">
+    <form className='w-full flex flex-col items-center gap-4' action="https://formsubmit.co/anadoomollo@zohomail.com">
         <div className='w-full md:w-[60%] flex flex-col gap-4'>
           <div  className='grid gap-2 w-full'>
             <Label htmlFor='name'>Enter your full name</Label>
