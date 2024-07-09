@@ -1,14 +1,11 @@
 import { Separator } from '../components/ui/separator'
 import { useBlogs } from '../hooks/useBlogs'
-import React from 'react'
 import { useParams } from 'react-router-dom'
 import { PulseLoader } from 'react-spinners'
 
 const Blog = () => {
 
   const { title } = useParams()
-
-  console.log(title);
 
   const {blogs, error, isLoading, isError } = useBlogs()
 
@@ -26,7 +23,7 @@ const Blog = () => {
   if(blog) {
     content = (
       <article className='grid gap-2'>
-        <h4 className='semibold'>{blog.title}</h4>
+        <h4 className='font-semibold'>{blog.title}</h4>
         <Separator />
         <img
           src={blog.imageUrl} 

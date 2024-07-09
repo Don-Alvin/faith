@@ -21,7 +21,7 @@ const BookForm = ({site}) => {
         </div>
         <div  className='grid gap-2 w-full'>
             <Label htmlFor='site'>Site to visit</Label>
-            <Input className='border border-black rounded h-10 p-1' value={site} required name='site' type='site' id='site' />
+            <Input className='border border-black rounded h-10 p-1' required name='site' type='site' id='site' />
         </div>  
         </div>
         <Button className='bg-secondary text-white p-2 rounded' value='send'>Submit</Button>
