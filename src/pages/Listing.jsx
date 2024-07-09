@@ -17,10 +17,8 @@ const Listing = () => {
     content = <p>Oooop! We encountered an error: {error}</p>
   }
 
-  const listing = listings?.find(listing => listing.id === id);
-
+  const listing = listings?.find(listing => listing.id === parseInt(id));
   console.log(listing);
-
 
   if(listing) {
     content = (
@@ -30,12 +28,14 @@ const Listing = () => {
         <img
           src={listing.imageUrl} 
           alt={listing.title}
-          className='w-full h-[200px] object-cover' 
+          className='rounded w-full h-[200px] object-cover' 
         />
         <Separator />
-        <p></p>
+        <p>{listing.description}</p>
       </article>
     )
+  } else {
+    content = <p>Listing not found</p>
   }
 
   return (
