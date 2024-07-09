@@ -24,10 +24,10 @@ const MobileNav = () => {
           title: "Home",
           to:"/"
         },
-        {
-          title: "About",
-          to:"/about"
-        },
+        // {
+        //   title: "About",
+        //   to:"/about"
+        // },
         {
           title: "Listings",
           to:"/listings"

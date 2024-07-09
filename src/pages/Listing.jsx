@@ -9,6 +9,7 @@ import { Label } from '../components/ui/label';
 import { Input } from '../components/ui/input';
 import { Button } from '../components/ui/button';
 import { BadgeCheck, MapPin } from 'lucide-react';
+import MetaData from '../components/Meta/meta';
 
 const Listing = () => {
   const { id } = useParams();
@@ -90,7 +91,7 @@ const Listing = () => {
             </div>
           </section>
           <section className='md:flex  mb-10 md:w-[30%]'>
-            <form className='w-full flex flex-col items-center gap-4' action="mailto:alvindon41@gmail.com">
+            <form className='w-full flex flex-col items-center gap-4' action="https://formsubmit.co/alvindon41@gmail.com">
               <h5 className='font-semibold'>Book viewing</h5>
               <div className='w-full md:w-[60%] flex flex-col gap-4'>
                 <div  className='grid gap-2 w-full'>
@@ -121,6 +122,7 @@ const Listing = () => {
 
   return(
      <div className="relative top-10 mb-5 p-6 overflow-hidden flex flex-col gap-2">
+      <MetaData title={listing?.name} />
       {content}
       {listing?.roi && (
         <p>Average return on investment is <span className='font-semibold'>{listing.roi}.</span></p>

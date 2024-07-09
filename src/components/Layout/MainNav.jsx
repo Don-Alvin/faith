@@ -18,10 +18,10 @@ const MainNav = () => {
           title: "Home",
           href:"/"
         },
-        {
-          title: "About",
-          href:"/about"
-        },
+        // {
+        //   title: "About",
+        //   href:"/about"
+        // },
         {
           title: "Listings",
           href:"/listings"
