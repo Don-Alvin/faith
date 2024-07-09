@@ -19,7 +19,11 @@ const Contact = () => {
           <Label htmlFor='email'>Email</Label>
           <Input className='rounded p-3' id='email' type='email' required name='email' />
         </div>
-        <Textarea placeholder='Enter your message here..' id='message' rows='10' required />
+        <div className='grid gap-2'>
+          <Label htmlFor='message'>Enter your message</Label>
+          <Textarea className='p-3 rounded' placeholder='Enter your message here..' name='message' id='message' rows='10' required />
+        </div>
+        
         <Button className='text-white bg-secondary w-fit rounded p-2'>Send message</Button>
       </form>
     </section>

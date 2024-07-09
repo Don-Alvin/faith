@@ -36,8 +36,8 @@ const Listings = () => {
             <CardContent className='flex justify-between w-full items-center'>
               <div className="text-sm font-semibold">
                  <p className="text-sm font-semibold">{listing.location}</p>
-                 <span>{listing.Bedrooms}Br</span>
-                 <p>{listing.Price}</p>
+                 <span>{listing.bedrooms}</span>
+                 <p>{listing.price}</p>
               </div>
               <div className="grid gap-2">
                 <Button onClick={handleBookMenu} className='bg-secondary rounded text-white p-2 text-sm'>Book Viewing</Button>
