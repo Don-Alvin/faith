@@ -43,7 +43,7 @@ const MobileNav = () => {
           <div className='flex justify-between items-center'>
             <div className='flex items-center'>
               <HomeIcon className='text-yellow-600'/>
-              <span className='font-semibold text-yellow-600 text-xl'>faith</span>
+              <span className='font-semibold text-yellow-600 text-xl'>Lamona Realtors</span>
             </div>
             <div>
               <MenuIcon className='text-secondary' onClick={handleAuthMenu}/>
