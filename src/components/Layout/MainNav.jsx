@@ -28,7 +28,7 @@ const MainNav = () => {
         },
         {
           title: "Blog",
-          href:"/blog"
+          href:"/blogs"
         }
       ]
 

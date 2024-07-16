@@ -34,7 +34,7 @@ const MobileNav = () => {
         },
         {
           title: "Blog",
-          to:"/blog"
+          to:"/blogs"
         }
       ]
 
