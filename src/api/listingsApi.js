@@ -3,7 +3,7 @@ import { db } from "./firebase";
 
 export const getListings = async () => {
   try {
-    const q = query(collection(db, "listings").orderBy("id", "desc"));
+    const q = query(collection(db, "listings"), orderBy("id", "desc"));
     const response = await getDocs(q);
     const listings = response.docs.map((document) => document.data());
     return listings;
