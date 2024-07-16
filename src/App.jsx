@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { HelmetProvider } from "react-helmet-async"
 import Listing from "./pages/Listing"
 import Blog from "./pages/Blog"
+import ErrorPage from "./pages/ErrorPage"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
         <Route path="blogs" element={<Blogs />} />
         <Route path="blogs/:title" element={<Blog />} />
         <Route path={`listings/:id`} element={<Listing />} />
+        <Route path="*" element={<ErrorPage />} />
       </Route>
     </Route>
   )
