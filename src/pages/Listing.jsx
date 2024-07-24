@@ -45,7 +45,6 @@ const Listing = () => {
             <div className='flex flex-col gap-2 md:flex-row justify-between items-start md:items-center'>
               <div className='grid gap-2'>
                 <h4 className="text-2xl font-semibold">{listing.name}</h4>
-                <p>{listing.description}</p>
                 <p className='flex gap-2 items-center'>
                   <MapPin />
                   <span>{listing.location}</span>
@@ -73,13 +72,13 @@ const Listing = () => {
                   {listing.moreImages.map((image, index) => (
                     <CarouselItem className='md:basis-1/2 lg:basis-1/3' key={index}>
                       <div className="p-1">
-                        <Card className='w-[200px] md:overflow-hidden'>
-                          <CardContent className="w-full rounded h-20">
+                        <Card className='w-[200px] md:w-[300px] md:overflow-hidden'>
+                          <CardContent className="w-full rounded h-20 md:h-[200px]">
                             <img
                               src={image.imageUrl}
                               alt={`image-${index}`}
                               onClick={() => changeImage(image.imageUrl)}
-                              className="rounded cursor-pointer w-full h-full object-cover"
+                              className="rounded border border-gray-400 shadow cursor-pointer w-full h-full object-cover"
                             />
                           </CardContent>
                         </Card>
@@ -90,8 +89,8 @@ const Listing = () => {
               </Carousel>
             </div>
           </section>
-          <section className='md:flex  mb-10 md:w-[30%]'>
-            <form className='w-full flex flex-col items-center gap-4' action="https://formsubmit.co/anadoomollo@zohomail.com">
+          <section className='md:flex md:w-[30%]'>
+            <form className='w-full flex flex-col md:mt-12 items-center gap-4' action="https://formsubmit.co/anadoomollo@zohomail.com">
               <h5 className='font-semibold'>Book viewing</h5>
               <div className='w-full md:w-[60%] flex flex-col gap-4'>
                 <div  className='grid gap-2 w-full'>
@@ -124,23 +123,25 @@ const Listing = () => {
      <div className="relative top-10 mb-5 p-6 overflow-hidden flex flex-col gap-2">
       <MetaData title={listing?.name} />
       {content}
+      {listing.description && (
+        <p>{listing.description}</p>
+      )}
       {listing?.roi && (
         <p>Average return on investment is <span className='font-semibold'>{listing.roi}.</span></p>
       )}
       {listing?.payment_plan && (
         <p><span className='font-semibold'>Payment plan: </span> {listing.payment_plan}</p>
       )}
-      <div className='grid gap-2'>
-        <h5 className='font-semibold text-xl'>Amenities</h5>
-        {listing?.Ammenities && listing.Ammenities.map(amenity => (
-          <div className='flex flex-col gap-2'>
-            <p className='flex'>
+      <div className='grid gap-2 mb-4'>
+        {listing.Ammenities && <h5 className='font-semibold text-xl'>Amenities</h5>}
+        <div className='flex flex-col md:flex-row flex-wrap gap-3 '>
+          {listing?.Ammenities && listing.Ammenities.map(amenity => (
+            <p className='flex gap-2 bg-gray-300 w-fit p-2 rounded-lg'>
               <BadgeCheck color='yellow' />
               <span>{amenity}</span>
             </p>
-          </div>
-        ))}
-       
+            ))}
+        </div>
       </div>
     </div>
   )

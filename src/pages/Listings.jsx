@@ -6,6 +6,7 @@ import { Button } from '../components/ui/button';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import BookModal from '../Modal/BookModal';
+import { Bed, HandCoins, MapPin } from 'lucide-react';
 
 const Listings = () => {
   const [isBookFormOpen, setIsBookFormOpen] = useState(false)
@@ -33,15 +34,24 @@ const Listings = () => {
                 alt={listing.name} 
               />
             </CardHeader>
-            <CardContent className='flex justify-between w-full items-center'>
-              <div className="text-sm font-semibold">
-                 <p className="text-sm font-semibold">{listing.location}</p>
-                 <span>{listing.Bedrooms}Br</span>
-                 <p>{listing.Price}</p>
-              </div>
-              <div className="grid gap-2">
-                <Button className='bg-secondary rounded text-white p-2 text-sm' onClick={handleBookMenu}>Book Viewing</Button>
-                <Link className="text-sm medium" to={`/listings/${listing.id}`}>View more details</Link>
+            <CardContent className='flex flex-col justify-between w-full gap-3'>
+              <div className="flex flex-col justify-between text-sm gap-3 ">
+                <div className="flex items-center gap-2">
+                  <MapPin className="text-gray-600" />
+                   <p className="text-sm bg-gray-300 w-fit px-2 py-1 rounded">{listing.name}</p>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Bed className="text-gray-600" />
+                  <span className="bg-gray-300 w-fit px-2 rounded py-1">{listing.bedrooms}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <HandCoins className="text-gray-600" />
+                  <p className="bg-gray-300 w-fit px-2 rounded py-1">{listing.price}</p>
+                </div>
+                <div className="grid gap-3">
+                  <Button onClick={handleBookMenu} className='bg-secondary rounded text-white p-2 text-sm w-full'>Book Viewing</Button>
+                  <Link className="text-sm medium" to={`listings/${listing.id}`}>View more details</Link>
+                </div>
               </div>
              {isBookFormOpen && (
                 <BookModal handleBookMenu={handleBookMenu} site={listing.name} />
