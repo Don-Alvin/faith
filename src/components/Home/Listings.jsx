@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import BookModal from "../../Modal/BookModal";
+import { Bed, HandCoins, MapPin } from "lucide-react";
 
 const Listings = () => {
 
@@ -26,20 +27,30 @@ const Listings = () => {
       <div className="flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-4 ">
         {listings.slice(0,limit)?.map(listing => (
           <Card className='rounded w-full border flex flex-col gap-2 items-center p-2' key={listing.id}>
-            <CardHeader className='w-full flex justify-center' >
+            <CardHeader className='w-full flex justify-center relative'>
+              {listing.status && <p className={`absolute top-2 right-2 rounded p-1 text-sm text-white ${listing.status === 'under construction' ? 'bg-red-400' : 'bg-green-400'}`}>{listing.status}</p>}
               <img
                 className="w-full h-[200px] md:h-[250px] object-cover rounded"
                 src={listing.imageUrl} 
                 alt={listing.name} 
               />
             </CardHeader>
-            <CardContent className='flex justify-between w-full items-center'>
-              <div className="text-sm font-semibold">
-                 <p className="text-sm font-semibold">{listing.location}</p>
-                 <span>{listing.bedrooms}</span>
-                 <p>{listing.price}</p>
-              </div>
-              <div className="grid gap-2">
+            <CardContent className='flex flex-col justify-between w-full gap-3'>
+              <div className="flex flex-col justify-between text-sm gap-3 ">
+                  <div className="flex items-center gap-2">
+                    <MapPin className="text-gray-600" />
+                    <p className="text-sm bg-gray-300 w-fit px-2 py-1 rounded">{listing.name}</p>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Bed className="text-gray-600" />
+                    <span className="bg-gray-300 w-fit px-2 rounded py-1">{listing.bedrooms}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <HandCoins className="text-gray-600" />
+                    <p className="bg-gray-300 w-fit px-2 rounded py-1">{listing.price}</p>
+                  </div>
+                </div> 
+              <div className="grid gap-3">
                 <Button onClick={handleBookMenu} className='bg-secondary rounded text-white p-2 text-sm'>Book Viewing</Button>
                 <Link className="text-sm medium" to={`listings/${listing.id}`}>View more details</Link>
               </div>

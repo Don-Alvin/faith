@@ -39,7 +39,7 @@ const MainNav = () => {
         <span className='text-md'>Lamona Realtors</span>
       </div>
       <div className='px-10'>
-          <div className={`flex gap-4 ${isActive ? 'text-yellow-600' : 'text-white'} font-semibold`}>
+          <div className={`flex gap-4 text-secondary font-semibold`}>
               {navLinks.map(link => {
                 return (
                   <Link className='cursor-pointer hover:underline' key={link.title} to={link.href}>{link.title}</Link>
