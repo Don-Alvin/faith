@@ -38,6 +38,7 @@ const Blog = () => {
 
   return (
     <div className='relative top-20 p-6'>
+      <MetaData title={blog.title} />
       {content}
     </div>
   )
