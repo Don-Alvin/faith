@@ -1,3 +1,4 @@
+import MetaData from '../components/Meta/meta'
 import { Separator } from '../components/ui/separator'
 import { useBlogs } from '../hooks/useBlogs'
 import { useParams } from 'react-router-dom'
@@ -22,13 +23,13 @@ const Blog = () => {
 
   if(blog) {
     content = (
-      <article className='grid gap-2'>
+      <article className='grid gap-2 mb-5'>
         <h4 className='font-semibold'>{blog.title}</h4>
         <Separator />
         <img
           src={blog.imageUrl} 
           alt={blog.title}
-          className='w-full h-[200px] object-cover' 
+          className='w-full h-[200px] md:h-[400px] object-cover' 
         />
         <Separator />
         <p>{blog.content}</p>
@@ -37,7 +38,7 @@ const Blog = () => {
   }
 
   return (
-    <div className='relative top-20 p-6'>
+    <div className='relative top-20 p-6 mb-10'>
       <MetaData title={blog.title} />
       {content}
     </div>
