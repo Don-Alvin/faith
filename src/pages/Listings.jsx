@@ -50,7 +50,7 @@ const Listings = () => {
                 </div>
                 <div className="grid gap-3">
                   <Button onClick={handleBookMenu} className='bg-secondary rounded text-white p-2 text-sm w-full'>Book Viewing</Button>
-                  <Link className="text-sm medium" to={`listings/${listing.id}`}>View more details</Link>
+                  <Link className="text-sm medium" to={`/listings/${listing.id}`}>View more details</Link>
                 </div>
               </div>
              {isBookFormOpen && (
