@@ -123,8 +123,8 @@ const Listing = () => {
      <div className="relative top-10 mb-5 p-6 overflow-hidden flex flex-col gap-2">
       <MetaData title={listing?.name} />
       {content}
-      {listing.description && (
-        <p>{listing.description}</p>
+      {listing?.description && (
+        <p>{listing?.description}</p>
       )}
       {listing?.roi && (
         <p>Average return on investment is <span className='font-semibold'>{listing.roi}.</span></p>
