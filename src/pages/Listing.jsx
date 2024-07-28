@@ -116,7 +116,7 @@ const Listing = () => {
         </article>
       );
     } else {
-      content = <p className="text-gray-500">Listing not found</p>;
+      content = <PulseLoader color="#BB7F10" />;
     }
 
   return(
