@@ -133,7 +133,7 @@ const Listing = () => {
         <p><span className='font-semibold'>Payment plan: </span> {listing.payment_plan}</p>
       )}
       <div className='grid gap-2 mb-4'>
-        {listing.Ammenities && <h5 className='font-semibold text-xl'>Amenities</h5>}
+        {listing?.Ammenities && <h5 className='font-semibold text-xl'>Amenities</h5>}
         <div className='flex flex-col md:flex-row flex-wrap gap-3 '>
           {listing?.Ammenities && listing.Ammenities.map(amenity => (
             <p className='flex gap-2 bg-gray-300 w-fit p-2 rounded-lg'>
