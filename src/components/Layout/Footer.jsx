@@ -17,8 +17,8 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex gap-3">
-          <Link className="p-2 rounded-full bg-green-900"><FacebookIcon /></Link>
-          <Link className="p-2 rounded-full bg-green-900"><LinkedinIcon /></Link>
+          <Link to='https://www.facebook.com/share/aQucT6BtD6U7vhy8/?mibextid=qi2Omg' target="_blank" className="p-2 rounded-full bg-green-900"><FacebookIcon /></Link>
+          <Link to='https://www.instagram.com/lamonarealtors' target="_blank" className="p-2 rounded-full bg-green-900"><LinkedinIcon /></Link>
           <Link className="p-2 rounded-full bg-green-900"><Instagram /></Link>
         </div>
       </div>
