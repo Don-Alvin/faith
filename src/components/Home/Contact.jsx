@@ -13,15 +13,20 @@ const Contact = () => {
       <form className="grid gap-3" method="POST" action="https://formsubmit.co/anadoomollo@zohomail.com">
         <div className="grid gap-2">
           <Label htmlFor='name'>Name</Label>
-          <Input className='rounded p-3' id='name' type='text' name='name' required />
+          <Input className='rounded p-3 border border-slate-400' id='name' type='text' name='name' required />
+        </div>
+        <div  className='grid gap-2 '>
+            <Label htmlFor='number'>Enter your phone number</Label>
+            <Input 
+              className='border border-slate-400 rounded p-3 ' required name='number' type='tel' id='email' />
         </div>
         <div className="grid gap-2">
           <Label htmlFor='email'>Email</Label>
-          <Input className='rounded p-3' id='email' type='email' required name='email' />
+          <Input className='rounded p-3 border border-slate-400' id='email' type='email' required name='email' />
         </div>
         <div className='grid gap-2'>
           <Label htmlFor='message'>Enter your message</Label>
-          <Textarea className='p-3 rounded' placeholder='Enter your message here..' name='message' id='message' rows='10' required />
+          <Textarea className='p-3 rounded border border-slate-400' placeholder='Enter your message here..' name='message' id='message' rows='10' required />
         </div>
         
         <Button className='text-white bg-secondary w-fit rounded p-2'>Send message</Button>
