@@ -3,15 +3,15 @@ import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white p-6">
+    <footer className="bg-primary flex flex-col md:flex-row gap-6 md:justify-evenly md:items-center text-white p-6 lg:p-20">
       <div className="grid gap-3">
-        <h4 className="font-semibold text-xl">Contact us</h4>
+        <h4 className="font-semibold text-2xl">Contact us</h4>
         <div className="grid gap-3">
-          <div className="flex gap-2">
+          <div className="flex gap-2  text-xl items-center">
             <Phone />
             <span>+254 704 087097</span>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 text-xl items-center">
             <Mail />
             <span>anadoomollo@zohomail.com</span>
           </div>
@@ -22,6 +22,15 @@ const Footer = () => {
           <Link className="p-2 rounded-full bg-green-900"><Instagram /></Link>
         </div>
       </div>
+      <div className="grid gap-3">
+        <h4 className="font-semibold text-2xl">Quick links</h4>
+        <div className="grid text-xl gap-3 ">
+          <Link to='/'>Home</Link>
+          <Link to='/listings'>Listings</Link>
+          <Link to='/blog'>Blog</Link>
+        </div>
+      </div>
+      
     </footer>
   )
 }

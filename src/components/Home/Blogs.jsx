@@ -9,13 +9,13 @@ const Blogs = () => {
   const {isLoading, isError, error, blogs} = useBlogs()
 
   let content;
-  let limit = 4;
+  let limit = 6;
 
   if(isLoading) content = <PulseLoader color='#BB7F10' />
 
   if(blogs) {
     content = (
-      <div className="flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-4 ">
+      <div className="flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 ">
         {blogs.slice(0,limit)?.map(blog => (
           <Link key={blog.id} to={`blogs/${blog.title}`}>
             <Card className='rounded w-full border flex flex-col gap-2 items-center p-2' >
@@ -40,10 +40,10 @@ const Blogs = () => {
   }
 
   return (
-    <section className="p-4 flex flex-col gap-4">
-      <div className="flex justify-between items-center">
-        <h2 className="font-semibold text-4xl text-xl text-primary">Our <span className="text-secondary">Blogs</span> </h2>
-        <Link to='listings' className="font-semibold text-sm">View more blogs</Link>
+    <section className="bg-slate-50 p-4 flex flex-col gap-4 md:px-20 md:py-10">
+      <div className="flex flex-col gap-2 items-center md:mb-4">
+        <h2 className="font-semibold text-xl md:text-4xl text-primary">Our <span className="text-secondary">Blogs</span> </h2>
+        <p className="text-xl text-center font-medium">Read our expert opinion on the real estate field.</p>
       </div>
       <div>
         {content}
