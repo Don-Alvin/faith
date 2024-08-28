@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid gap-3">
           <div className="flex gap-2  text-xl items-center">
             <Phone />
-            <span>+254 704 087097</span>
+            <span>+254 750 030 35</span>
           </div>
           <div className="flex gap-2 text-xl items-center">
             <Mail />
