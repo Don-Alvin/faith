@@ -15,20 +15,20 @@ const Blogs = () => {
 
   if(blogs) {
     content = (
-      <div className="flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-4 ">
-        {blogs?.map(blog => (
-          <Link key={blog.id} to={`blogs/${blog.title}`}>
-            <Card className='rounded w-full border flex flex-col gap-2 items-center p-2' >
+      <div className="flex flex-col gap-2 md:grid md:grid-cols-2 lg:grid-cols-3 ">
+        {blogs.map(blog => (
+          <Link key={blog.id} to={`/blogs/${blog.title}`}>
+            <Card className='shadow-xl rounded w-full border flex flex-col gap-2 items-center p-2' >
               <CardHeader className='w-full flex justify-center' >
                 <img
-                  className="w-full h-[100px] md:h-[100px] object-cover rounded"
+                  className="w-full h-[150px] md:h-[200px] object-cover rounded"
                   src={blog.imageUrl} 
                   alt={blog.title} 
                 />
               </CardHeader>
               <CardContent className='flex justify-between w-full items-center'>
-                <div className="text-sm">
-                  <p className="text-sm font-semibold">{blog.title}</p>
+                <div className=" flex flex-col gap-2">
+                  <h2 className="text-lg font-semibold">{blog.title}</h2>
                   <p>{blog.intro}</p>
                 </div>
               </CardContent>
@@ -40,12 +40,12 @@ const Blogs = () => {
   }
 
   return (
-    <section className='p-6 mt-10'>
+    <section className='p-6 md:px-20 mt-10 md:mt-24'>
       <MetaData title={'All Blogs'} />
-      <header className='my-2 flex font-semibold justify-between items-center'>
-        <h2 className='text-gray-700 font-semibold text-xl'>Blogs</h2>
+      <header className='my-2 flex font-semibold justify-center items-center'>
+        <h2 className="font-semibold text-xl md:text-4xl text-primary">Our <span className="text-secondary">Blogs</span> </h2>
       </header>
-      <article className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 my-4'>
+      <article className='md:mt-8'>
         {content}
       </article>
     </section>

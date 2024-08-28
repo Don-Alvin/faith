@@ -27,7 +27,7 @@ const Footer = () => {
         <div className="grid text-xl gap-3 ">
           <Link to='/'>Home</Link>
           <Link to='/listings'>Listings</Link>
-          <Link to='/blog'>Blog</Link>
+          <Link to='/blogs'>Blog</Link>
         </div>
       </div>
       

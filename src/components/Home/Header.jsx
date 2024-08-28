@@ -10,7 +10,7 @@ const Header = () => {
           <br className="md:hidden"/>
           <span className="text-yellow-600">House</span>
           </p>
-          <p className="text-white text-center text-lg md:text-lg p-4 font-medium md:leading-loose">Embark on your journey of finding your dream house with us. We specialise in helping you uncover the perfect property that meets your needs and exceeds expectations</p>
+          <p className="text-white text-center text-xl md:text-2xl md:w-[800px] p-4 font-medium md:leading-loose">Embark on your journey of finding your dream house with us. We specialise in helping you uncover the perfect property that meets your needs and exceeds expectations.</p>
         </div>
       </div>
     </section>

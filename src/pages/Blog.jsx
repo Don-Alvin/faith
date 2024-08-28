@@ -23,8 +23,8 @@ const Blog = () => {
 
   if(blog) {
     content = (
-      <article className='grid gap-2 mb-5'>
-        <h4 className='font-semibold'>{blog.title}</h4>
+      <article className='grid gap-2 mb-20'>
+        <h1 className='font-semibold text-2xl text-center'>{blog.title}</h1>
         <Separator />
         <img
           src={blog.imageUrl} 
@@ -32,13 +32,13 @@ const Blog = () => {
           className='w-full h-[200px] md:h-[400px] object-cover' 
         />
         <Separator />
-        <p>{blog.content}</p>
+        <p className='text-lg'>{blog.content}</p>
       </article>
     )
   }
 
   return (
-    <div className='relative top-20 p-6 mb-10'>
+    <div className='relative top-24 p-6 md:px-20 '>
       <MetaData title={blog.title} />
       {content}
     </div>

@@ -1,6 +1,7 @@
 import { Home } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from '../ui/button'
 
 const MainNav = () => {
 
@@ -38,7 +39,7 @@ const MainNav = () => {
         <Home />
         <span className='text-xl'>Lamona Realtors</span>
       </div>
-      <div className='px-10'>
+      <div className='px-10 flex items-center gap-10'>
           <div className={`flex gap-4 text-secondary font-semibold`}>
               {navLinks.map(link => {
                 return (
@@ -46,6 +47,7 @@ const MainNav = () => {
                 )
               })}
           </div>
+          <a href='#contactus' className='text-white bg-secondary py-3 px-5 rounded'>Talk to us</a>
       </div>
     </div>
   )
