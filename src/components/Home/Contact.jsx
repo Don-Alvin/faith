@@ -18,7 +18,7 @@ const Contact = () => {
         <div  className='grid gap-2 '>
             <Label htmlFor='number'>Enter your phone number</Label>
             <Input 
-              className='border border-slate-400 rounded p-3 ' required name='number' type='tel' id='email' />
+              className='border border-slate-400 rounded p-3 ' required name='number' type='tel' id='number' />
         </div>
         <div className="grid gap-2">
           <Label htmlFor='email'>Email</Label>

@@ -69,7 +69,7 @@ const Listing = () => {
                 className="w-full max-w-sm"
               >
                 <CarouselContent className='flex gap-1' >
-                  {listing.moreImages.map((image, index) => (
+                   {listing.moreImages && listing.moreImages.map((image, index) => (
                     <CarouselItem className='md:basis-1/2 lg:basis-1/3' key={index}>
                       <div className="p-1">
                         <Card className='w-[200px] md:w-[300px] md:overflow-hidden'>
