@@ -121,11 +121,11 @@ const Listing = () => {
 
   return(
      <div className="relative top-10 mb-5 p-6 overflow-hidden flex flex-col gap-2">
-      <MetaData title={listing?.name} />
+      <MetaData title={listing?.name} name='description' content={listing.description} />
       {content}
       {listing?.description && (
         <div>
-          <h2>Description</h2>
+          <h2 className='font-semibold text-2xl'>Description</h2>
           <p>{listing?.description}</p>
         </div>
       )}
@@ -136,12 +136,12 @@ const Listing = () => {
         <p><span className='font-semibold'>Payment plan: </span> {listing.payment_plan}</p>
       )}
       <div className='grid gap-2 mb-4'>
-        {listing?.Ammenities && <h5 className='font-semibold text-xl'>Amenities</h5>}
+        {listing?.Ammenities && <h2 className='font-semibold text-2xl'>Amenities</h2>}
         <div className='flex flex-col md:flex-row flex-wrap gap-3 '>
           {listing?.Ammenities && listing.Ammenities.map(amenity => (
             <p className='flex gap-2 bg-gray-300 w-fit p-2 rounded-lg'>
               <BadgeCheck color='yellow' />
-              <span>{amenity}</span>
+              <span className='font-medium text-xl'>{amenity}</span>
             </p>
             ))}
         </div>

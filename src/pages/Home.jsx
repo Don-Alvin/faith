@@ -7,7 +7,7 @@ import Contact from "../components/Home/Contact"
 const Home = () => {
   return (
     <div>
-      <MetaData title={'Find your dream house'} />
+      <MetaData title={'Find your dream house'} name='description' content='Number one place to find the best deals in home ownership and renting.' />
       <Header />
       <Listings />
       <Blogs />

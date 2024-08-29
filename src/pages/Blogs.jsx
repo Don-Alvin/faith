@@ -23,7 +23,8 @@ const Blogs = () => {
                 <img
                   className="w-full h-[150px] md:h-[200px] object-cover rounded"
                   src={blog.imageUrl} 
-                  alt={blog.title} 
+                  alt={blog.title}
+                  title={blog.title} 
                 />
               </CardHeader>
               <CardContent className='flex justify-between w-full items-center'>
@@ -41,7 +42,7 @@ const Blogs = () => {
 
   return (
     <section className='p-6 md:px-20 mt-10 md:mt-24'>
-      <MetaData title={'All Blogs'} />
+      <MetaData title={'All Blogs'} name='description' content='Read expert opinions from us.' />
       <header className='my-2 flex font-semibold justify-center items-center'>
         <h1 className="font-semibold text-xl md:text-4xl text-primary">Our <span className="text-secondary">Blogs</span> </h1>
       </header>

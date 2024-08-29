@@ -24,6 +24,7 @@ const Blogs = () => {
                   className="w-full h-[150px] md:h-[200px] object-cover rounded"
                   src={blog.imageUrl} 
                   alt={blog.title} 
+                  title={Listing.name}
                 />
               </CardHeader>
               <CardContent className='flex justify-between w-full items-center'>

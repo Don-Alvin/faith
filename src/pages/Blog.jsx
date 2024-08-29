@@ -29,6 +29,7 @@ const Blog = () => {
         <img
           src={blog.imageUrl} 
           alt={blog.title}
+          title={blog.title}
           className='w-full h-[200px] md:h-[400px] object-cover' 
         />
         <Separator />
@@ -39,7 +40,7 @@ const Blog = () => {
 
   return (
     <div className='relative top-24 p-6 md:px-20 '>
-      <MetaData title={blog.title} />
+      <MetaData title={blog.title} name='description' content={blog.title} />
       {content}
     </div>
   )
