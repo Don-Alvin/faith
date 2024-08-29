@@ -39,7 +39,7 @@ const Blog = () => {
   }
 
   return (
-    <div className='relative top-24 p-6 md:px-20 '>
+    <div className='mt-10 md:mt-24 p-6 md:px-20 '>
       <MetaData title={blog.title} name='description' content={blog.title} />
       {content}
     </div>

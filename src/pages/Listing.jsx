@@ -50,7 +50,7 @@ const Listing = () => {
                   <span>{listing.location}</span>
                 </p>
               </div>
-              <h4 className='text-2xl font-semibold'>{listing.price}</h4>
+              <span className='text-2xl font-semibold'>{listing.price}</span>
             </div>
             <div className='relative'>
               <p className={`absolute right-1 top-1 w-fit rounded p-1 text-white ${listing.status === `under construction` ? 'bg-red-400' : 'bg-green-400'}`}>{listing.status}</p>
@@ -91,7 +91,7 @@ const Listing = () => {
           </section>
           <section className='md:flex md:w-[30%]'>
             <form className='w-full flex flex-col md:mt-12 items-center gap-4' action="https://formsubmit.co/anadoomollo@zohomail.com">
-              <h5 className='font-semibold'>Book viewing</h5>
+              <h2 className='font-semibold'>Book viewing</h2>
               <div className='w-full md:w-[60%] flex flex-col gap-4'>
                 <div  className='grid gap-2 w-full'>
                   <Label htmlFor='name'>Enter your full name</Label>
@@ -120,7 +120,7 @@ const Listing = () => {
     }
 
   return(
-     <div className="relative top-10 md:top-20 mb-5 p-6 overflow-hidden flex flex-col gap-2">
+     <div className="mt-10 md:mt-24 mb-5 p-6 overflow-hidden flex flex-col gap-2">
       <MetaData title={listing?.name} name='description' content={listing?.description} />
       {content}
       {listing?.description && (
