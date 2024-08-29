@@ -33,7 +33,7 @@ const Listings = () => {
                 className="w-full h-[200px] md:h-[300px] object-cover rounded"
                 src={listing.imageUrl} 
                 alt={listing.name}
-                title={listing.name} 
+                title={listing?.name} 
               />
             </CardHeader>
             <CardContent className='flex flex-col justify-between w-full gap-6'>

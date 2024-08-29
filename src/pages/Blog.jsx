@@ -29,7 +29,7 @@ const Blog = () => {
         <img
           src={blog.imageUrl} 
           alt={blog.title}
-          title={blog.title}
+          title={blog?.title}
           className='w-full h-[200px] md:h-[400px] object-cover' 
         />
         <Separator />
