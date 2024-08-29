@@ -120,8 +120,8 @@ const Listing = () => {
     }
 
   return(
-     <div className="relative top-10 mb-5 p-6 overflow-hidden flex flex-col gap-2">
-      <MetaData title={listing?.name} name='description' content={listing.description} />
+     <div className="relative top-10 md:top-20 mb-5 p-6 overflow-hidden flex flex-col gap-2">
+      <MetaData title={listing?.name} name='description' content={listing?.description} />
       {content}
       {listing?.description && (
         <div>
