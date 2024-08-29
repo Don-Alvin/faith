@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <section id="contactus" className="p-6 md:p-20">
       <div className="flex flex-col items-center gap-4 mmd:mb-6 lg:mb-10">
-        <h3 className="font-semibold text-2xl">Looking to sell or buy?</h3>
+        <h2 className="font-semibold text-2xl">Looking to sell or buy?</h2>
         <p className="text-xl font-medium text-center">Tell us more about your dreams or project and we will get back to you </p>
       </div>
       <form className="grid md:px-10 gap-3" method="POST" action="https://formsubmit.co/anadoomollo@zohomail.com">

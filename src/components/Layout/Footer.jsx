@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary flex flex-col md:flex-row gap-6 md:justify-evenly md:items-center text-white p-6 lg:p-20">
       <div className="grid gap-3">
-        <h4 className="font-semibold text-2xl">Contact us</h4>
+        <h3 className="font-semibold text-2xl">Contact us</h3>
         <div className="grid gap-3">
           <div className="flex gap-2  text-xl items-center">
             <Phone />
@@ -23,7 +23,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="grid gap-3">
-        <h4 className="font-semibold text-2xl">Quick links</h4>
+        <h3 className="font-semibold text-2xl">Quick links</h3>
         <div className="grid text-xl gap-3 ">
           <Link to='/'>Home</Link>
           <Link to='/listings'>Listings</Link>

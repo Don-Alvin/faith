@@ -44,7 +44,7 @@ const Listing = () => {
           <section className='relative md:w-[70%] md:flex flex-col gap-2'>
             <div className='flex flex-col gap-2 md:flex-row justify-between items-start md:items-center'>
               <div className='grid gap-2'>
-                <h4 className="text-2xl font-semibold">{listing.name}</h4>
+                <h1 className="text-2xl font-semibold">{listing.name}</h1>
                 <p className='flex gap-2 items-center'>
                   <MapPin />
                   <span>{listing.location}</span>
@@ -124,7 +124,10 @@ const Listing = () => {
       <MetaData title={listing?.name} />
       {content}
       {listing?.description && (
-        <p>{listing?.description}</p>
+        <div>
+          <h2>Description</h2>
+          <p>{listing?.description}</p>
+        </div>
       )}
       {listing?.roi && (
         <p>Average return on investment is <span className='font-semibold'>{listing.roi}.</span></p>

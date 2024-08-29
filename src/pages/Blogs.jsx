@@ -43,7 +43,7 @@ const Blogs = () => {
     <section className='p-6 md:px-20 mt-10 md:mt-24'>
       <MetaData title={'All Blogs'} />
       <header className='my-2 flex font-semibold justify-center items-center'>
-        <h2 className="font-semibold text-xl md:text-4xl text-primary">Our <span className="text-secondary">Blogs</span> </h2>
+        <h1 className="font-semibold text-xl md:text-4xl text-primary">Our <span className="text-secondary">Blogs</span> </h1>
       </header>
       <article className='md:mt-8'>
         {content}
