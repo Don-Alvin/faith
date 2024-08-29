@@ -53,7 +53,7 @@ const Listings = () => {
                 </div> 
               <div className="grid gap-3">
                 <Button onClick={handleBookMenu} className='bg-secondary rounded text-white py-3 text-lg'>Book Viewing</Button>
-                <Link className="text-lg font-medium w-fit border-b-2 border-gray-700 p-0.5" to={`listings/${listing.id}`}>View more details</Link>
+                <Link className="text-lg font-medium w-fit border-b-2 border-gray-700 p-0.5" to={`/listings/${listing.id}`}>View more details</Link>
               </div>
               {isBookFormOpen && (
                 <BookModal handleBookMenu={handleBookMenu} site={listing.name} />
