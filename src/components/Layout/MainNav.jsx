@@ -35,9 +35,8 @@ const MainNav = () => {
 
   return (
     <div className={`flex justify-between p-6 backdrop-blur-lg  ${isActive ? "bg-primary opacity-90" : ''}`}>
-      <div className='flex items-center text-yellow-600 font-semibold'>
-        <Home />
-        <span className='text-xl'>Lamona Realtors</span>
+      <div className='flex items-center w-28 h-10 text-yellow-600 font-semibold'>
+        <img src='/images/logo_whitebg.png' alt='logo'  className='w-full'/>
       </div>
       <div className='px-10 flex items-center gap-10'>
           <div className={`flex gap-4 text-secondary font-semibold`}>

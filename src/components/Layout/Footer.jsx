@@ -3,7 +3,10 @@ import { Link } from "react-router-dom"
 
 const Footer = () => {
   return (
-    <footer className="bg-primary flex flex-col md:flex-row gap-6 md:justify-evenly md:items-center text-white p-6 lg:p-20">
+    <footer className="bg-primary flex flex-col md:flex-row gap-6 md:justify-evenly md:items-center text-white px-6 py-10 lg:p-20">
+      <div className='flex items-center w-40 h-10 text-yellow-600 font-semibold'>
+        <img src='/images/logo_whitebg.png' alt='logo'  className='w-full'/>
+      </div>
       <div className="grid gap-3">
         <h3 className="font-semibold text-2xl">Contact us</h3>
         <div className="grid gap-3">

@@ -41,10 +41,9 @@ const MobileNav = () => {
       return (
         <nav className={`p-4 relative ${isActive ? "bg-primary" : ''}`}>
           <div className='flex justify-between items-center'>
-            <div className='flex items-center'>
-              <HomeIcon className='text-yellow-600'/>
-              <span className='font-semibold text-yellow-600 text-xl'>Lamona Realtors</span>
-            </div>
+          <div className='flex items-center w-24 h-10 text-yellow-600 font-semibold'>
+            <img src='/images/logo_whitebg.png' alt='logo'  className='w-full'/>
+          </div>
             <div>
               <MenuIcon className='text-secondary' onClick={handleAuthMenu}/>
             </div>
