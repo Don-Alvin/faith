@@ -8,6 +8,8 @@ const Blogs = () => {
 
   const {isLoading, isError, error, blogs} = useBlogs()
 
+  console.log(blogs)
+
   let content;
 
   if(isLoading) content = <PulseLoader color='#BB7F10' />

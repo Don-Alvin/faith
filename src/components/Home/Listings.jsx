@@ -17,6 +17,9 @@ const Listings = () => {
 
   const {isLoading, isError, error, listings} = useListings()
 
+  console.log(listings)
+
+
   let content;
   let limit = 6;
 
