@@ -37,37 +37,37 @@ const Header: React.FC = () => {
             Premium Real Estate Experience
           </div>
 
-          {/* Main heading */}
-          <div className="space-y-6 mb-8">
+          {/* Main heading - Smaller fonts and centered */}
+          <div className="space-y-4 mb-8">
             <h1 className={`font-display font-bold text-white leading-tight transition-all duration-1000 ease-out ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            } text-5xl sm:text-6xl md:text-7xl lg:text-8xl`}>
-              Discover Your
+            } text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center`}>
+              Find Your
             </h1>
             
             <div className={`transition-all duration-1000 ease-out delay-300 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}>
-              <span className="font-display font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
-                Perfect
+            } text-center`}>
+              <span className="font-display font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                Dream
               </span>
             </div>
             
             <h1 className={`font-display font-bold text-white transition-all duration-1000 ease-out delay-500 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            } text-5xl sm:text-6xl md:text-7xl lg:text-8xl`}>
-              Property
+            } text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center`}>
+              Home
             </h1>
           </div>
 
-          {/* Subtitle */}
+          {/* Subtitle - Centered and smaller */}
           <p className={`text-white/80 font-light leading-relaxed max-w-3xl mx-auto transition-all duration-1000 ease-out delay-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          } text-lg sm:text-xl md:text-2xl mb-12`}>
+          } text-base sm:text-lg md:text-xl mb-12 text-center`}>
             Experience luxury living redefined. We curate exceptional properties that transform houses into homes and investments into legacies.
           </p>
 
-          {/* CTA buttons */}
+          {/* CTA buttons - Centered */}
           <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center transition-all duration-1000 ease-out delay-900 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
@@ -88,25 +88,25 @@ const Header: React.FC = () => {
             </Button>
           </div>
 
-          {/* Stats */}
+          {/* Stats - Centered */}
           <div className={`grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16 transition-all duration-1000 ease-out delay-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">500+</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white mb-2">500+</div>
               <div className="text-white/60 text-sm">Happy Clients</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">50+</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white mb-2">50+</div>
               <div className="text-white/60 text-sm">Properties Sold</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">5★</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white mb-2">5★</div>
               <div className="text-white/60 text-sm">Client Rating</div>
             </div>
           </div>
 
-          {/* Scroll indicator */}
+          {/* Scroll indicator - Centered */}
           <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 ease-out delay-1200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
