@@ -38,7 +38,7 @@ const MainNav: React.FC = () => {
           <Link to="/" className="flex items-center group">
             <div className="flex items-center space-x-3">
               <div className={`w-10 h-10 rounded-xl transition-all duration-300 group-hover:scale-110 ${
-                isScrolled ? 'bg-gradient-to-r from-indigo-600 to-purple-600' : 'bg-white/20 backdrop-blur-sm'
+                isScrolled ? 'bg-gradient-to-r from-slate-900 to-slate-700' : 'bg-white/20 backdrop-blur-sm'
               }`}>
                 <div className="w-full h-full flex items-center justify-center">
                   <span className={`font-bold text-lg ${isScrolled ? 'text-white' : 'text-white'}`}>L</span>
@@ -60,7 +60,7 @@ const MainNav: React.FC = () => {
                 to={link.href}
                 className={`relative text-sm font-medium transition-all duration-300 hover:scale-105 group ${
                   isScrolled 
-                    ? 'text-gray-700 hover:text-indigo-600' 
+                    ? 'text-gray-700 hover:text-slate-900' 
                     : 'text-white/90 hover:text-white'
                 }`}
                 style={{
@@ -70,7 +70,7 @@ const MainNav: React.FC = () => {
                 {link.title}
                 <span className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
                   isScrolled 
-                    ? 'bg-indigo-600' 
+                    ? 'bg-slate-900' 
                     : 'bg-white'
                 }`}></span>
               </Link>
@@ -83,7 +83,7 @@ const MainNav: React.FC = () => {
               href='#contactus' 
               className={`inline-flex items-center px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-lg ${
                 isScrolled
-                  ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:from-indigo-700 hover:to-purple-700 shadow-md'
+                  ? 'bg-gradient-to-r from-slate-900 to-slate-700 text-white hover:from-slate-800 hover:to-slate-600 shadow-md'
                   : 'bg-white/10 text-white border border-white/30 hover:bg-white/20 backdrop-blur-sm'
               }`}
             >
@@ -117,7 +117,7 @@ const MainNav: React.FC = () => {
                   key={link.title}
                   to={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-gray-900 font-medium py-2 hover:text-indigo-600 transition-colors"
+                  className="block text-gray-900 font-medium py-2 hover:text-slate-900 transition-colors"
                 >
                   {link.title}
                 </Link>
@@ -125,7 +125,7 @@ const MainNav: React.FC = () => {
               <a 
                 href='#contactus'
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block w-full text-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-full font-semibold mt-4"
+                className="block w-full text-center bg-gradient-to-r from-slate-900 to-slate-700 text-white py-3 rounded-full font-semibold mt-4"
               >
                 Get Started
               </a>

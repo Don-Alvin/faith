@@ -36,10 +36,10 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-gradient-to-br from-slate-900 via-gray-900 to-slate-900 relative overflow-hidden">
-      {/* Background Elements */}
+      {/* Subtle background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/3 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10">
@@ -49,8 +49,8 @@ const Footer: React.FC = () => {
             {/* Company Info */}
             <div className="lg:col-span-2 space-y-6">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center">
-                  <span className="font-bold text-white text-lg">L</span>
+                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center">
+                  <span className="font-bold text-slate-900 text-lg">L</span>
                 </div>
                 <span className="font-display font-bold text-white text-2xl">Lamona</span>
               </div>
@@ -62,21 +62,21 @@ const Footer: React.FC = () => {
               {/* Contact Info */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Phone className="h-5 w-5 text-white" />
                   </div>
                   <span className="text-lg">+254 750 030 357</span>
                 </div>
                 
                 <div className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group">
-                  <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Mail className="h-5 w-5 text-white" />
                   </div>
                   <span className="text-lg">anadoomollo@zohomail.com</span>
                 </div>
 
                 <div className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group">
-                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                     <MapPin className="h-5 w-5 text-white" />
                   </div>
                   <span className="text-lg">Nairobi, Kenya</span>
@@ -121,9 +121,9 @@ const Footer: React.FC = () => {
                 <input 
                   type="email" 
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-gray-400 focus:border-indigo-500 focus:ring-indigo-500/20 transition-all duration-300 backdrop-blur-sm"
+                  className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-gray-400 focus:border-white/40 focus:ring-white/20 transition-all duration-300 backdrop-blur-sm"
                 />
-                <button className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg">
+                <button className="px-6 py-3 bg-white text-slate-900 hover:bg-gray-100 font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg">
                   Subscribe
                 </button>
               </div>

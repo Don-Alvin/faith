@@ -64,17 +64,17 @@ const Contact: React.FC = () => {
   ]
 
   const stats = [
-    { icon: Users, number: "500+", label: "Happy Clients", gradient: "from-indigo-500 to-purple-500" },
-    { icon: Award, number: "50+", label: "Properties Sold", gradient: "from-green-500 to-emerald-500" },
-    { icon: Clock, number: "5★", label: "Client Rating", gradient: "from-yellow-500 to-orange-500" }
+    { icon: Users, number: "500+", label: "Happy Clients", gradient: "from-slate-600 to-slate-800" },
+    { icon: Award, number: "50+", label: "Properties Sold", gradient: "from-slate-600 to-slate-800" },
+    { icon: Clock, number: "5★", label: "Client Rating", gradient: "from-slate-600 to-slate-800" }
   ]
 
   return (
-    <section id="contactus" className="relative py-20 lg:py-32 bg-gradient-to-br from-slate-50 via-white to-indigo-50/50 overflow-hidden">
-      {/* Background Elements */}
+    <section id="contactus" className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-gray-50 overflow-hidden">
+      {/* Subtle background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-indigo-200/30 to-purple-200/30 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-pink-200/30 to-rose-200/30 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-64 h-64 bg-slate-100/50 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gray-100/50 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
         <div className={`text-center mb-16 lg:mb-20 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+          <div className="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <MessageCircle className="w-4 h-4" />
             Get In Touch
           </div>
@@ -118,7 +118,7 @@ const Contact: React.FC = () => {
               {contactInfo.map((item, index) => (
                 <div 
                   key={index}
-                  className={`group p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl border border-white/50 hover:border-white/80 transition-all duration-300 hover:-translate-y-1 ${
+                  className={`group p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:-translate-y-1 ${
                     isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
                   }`}
                   style={{ transitionDelay: `${(index + 1) * 200}ms` }}
@@ -129,7 +129,7 @@ const Contact: React.FC = () => {
                     </div>
                     <div className="flex-1">
                       <h4 className="font-semibold text-gray-900 text-lg mb-1">{item.title}</h4>
-                      <p className="text-indigo-600 font-medium mb-1">{item.content}</p>
+                      <p className="text-slate-700 font-medium mb-1">{item.content}</p>
                       <p className="text-gray-500 text-sm">{item.description}</p>
                     </div>
                   </div>
@@ -157,9 +157,9 @@ const Contact: React.FC = () => {
           <div className={`transition-all duration-1000 delay-500 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
           }`}>
-            <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/50 overflow-hidden">
+            <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
               {/* Form Header */}
-              <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-8 text-white">
+              <div className="bg-gradient-to-r from-slate-900 to-slate-700 p-8 text-white">
                 <h3 className="font-display text-2xl font-bold mb-2">Send us a Message</h3>
                 <p className="text-white/80">We'll get back to you within 24 hours</p>
               </div>
@@ -170,7 +170,7 @@ const Contact: React.FC = () => {
                   <div className="space-y-2">
                     <Label htmlFor='name' className="text-gray-700 font-medium">Full Name</Label>
                     <Input 
-                      className='border-gray-200 rounded-xl h-12 px-4 focus:border-indigo-500 focus:ring-indigo-500/20 transition-all duration-300 hover:border-gray-300 bg-white/50' 
+                      className='border-gray-200 rounded-xl h-12 px-4 focus:border-slate-500 focus:ring-slate-500/20 transition-all duration-300 hover:border-gray-300 bg-white' 
                       id='name' 
                       type='text' 
                       name='name' 
@@ -184,7 +184,7 @@ const Contact: React.FC = () => {
                   <div className="space-y-2">
                     <Label htmlFor='email' className="text-gray-700 font-medium">Email Address</Label>
                     <Input 
-                      className='border-gray-200 rounded-xl h-12 px-4 focus:border-indigo-500 focus:ring-indigo-500/20 transition-all duration-300 hover:border-gray-300 bg-white/50' 
+                      className='border-gray-200 rounded-xl h-12 px-4 focus:border-slate-500 focus:ring-slate-500/20 transition-all duration-300 hover:border-gray-300 bg-white' 
                       id='email' 
                       type='email' 
                       name='email' 
@@ -199,7 +199,7 @@ const Contact: React.FC = () => {
                 <div className="space-y-2">
                   <Label htmlFor='number' className="text-gray-700 font-medium">Phone Number</Label>
                   <Input 
-                    className='border-gray-200 rounded-xl h-12 px-4 focus:border-indigo-500 focus:ring-indigo-500/20 transition-all duration-300 hover:border-gray-300 bg-white/50' 
+                    className='border-gray-200 rounded-xl h-12 px-4 focus:border-slate-500 focus:ring-slate-500/20 transition-all duration-300 hover:border-gray-300 bg-white' 
                     id='number' 
                     type='tel' 
                     name='number' 
@@ -213,7 +213,7 @@ const Contact: React.FC = () => {
                 <div className="space-y-2">
                   <Label htmlFor='message' className="text-gray-700 font-medium">Message</Label>
                   <Textarea 
-                    className='border-gray-200 rounded-xl p-4 min-h-[120px] focus:border-indigo-500 focus:ring-indigo-500/20 transition-all duration-300 hover:border-gray-300 resize-none bg-white/50' 
+                    className='border-gray-200 rounded-xl p-4 min-h-[120px] focus:border-slate-500 focus:ring-slate-500/20 transition-all duration-300 hover:border-gray-300 resize-none bg-white' 
                     placeholder='Tell us about your real estate needs...' 
                     name='message' 
                     id='message' 
@@ -223,7 +223,7 @@ const Contact: React.FC = () => {
                   />
                 </div>
                 
-                <Button className='w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border-0'>
+                <Button className='w-full bg-gradient-to-r from-slate-900 to-slate-700 hover:from-slate-800 hover:to-slate-600 text-white py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border-0'>
                   <Send className="mr-2 h-5 w-5" />
                   Send Message
                 </Button>

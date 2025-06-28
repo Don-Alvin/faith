@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ChevronDown, Search, Play, ArrowRight, Sparkles } from 'lucide-react'
+import { ChevronDown, Search, Play, ArrowRight, Award } from 'lucide-react'
 import { Button } from '../ui/button'
 import { Link } from 'react-router-dom'
 import img from '../../../public/images/hero2.jpg'
@@ -17,62 +17,62 @@ const Header: React.FC = () => {
       style={{backgroundImage: `url(${img})`}} 
       className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden"
     >
-      {/* Modern gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-indigo-900/70 to-purple-900/80"></div>
+      {/* Sophisticated overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90"></div>
       
-      {/* Floating elements */}
+      {/* Subtle floating elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute top-1/3 right-1/3 w-48 h-48 bg-gradient-to-r from-pink-500/20 to-rose-500/20 rounded-full blur-3xl animate-float" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-1/3 left-1/5 w-32 h-32 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-white/3 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-1/3 left-1/5 w-48 h-48 bg-white/4 rounded-full blur-3xl animate-float" style={{animationDelay: '4s'}}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-5xl mx-auto">
-          {/* Badge */}
+          {/* Premium badge */}
           <div className={`inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-8 transition-all duration-1000 ease-out ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
-            <Sparkles className="w-4 h-4" />
-            Premium Real Estate Experience
+            <Award className="w-4 h-4" />
+            Premium Real Estate Excellence
           </div>
 
-          {/* Main heading - Smaller fonts and centered */}
-          <div className="space-y-4 mb-8">
+          {/* Main heading - Clean and centered */}
+          <div className="space-y-6 mb-8">
             <h1 className={`font-display font-bold text-white leading-tight transition-all duration-1000 ease-out ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            } text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center`}>
+            } text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center`}>
               Find Your
             </h1>
             
             <div className={`transition-all duration-1000 ease-out delay-300 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             } text-center`}>
-              <span className="font-display font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+              <span className="font-display font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
                 Dream
               </span>
             </div>
             
             <h1 className={`font-display font-bold text-white transition-all duration-1000 ease-out delay-500 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            } text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center`}>
+            } text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center`}>
               Home
             </h1>
           </div>
 
-          {/* Subtitle - Centered and smaller */}
+          {/* Refined subtitle */}
           <p className={`text-white/80 font-light leading-relaxed max-w-3xl mx-auto transition-all duration-1000 ease-out delay-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          } text-base sm:text-lg md:text-xl mb-12 text-center`}>
-            Experience luxury living redefined. We curate exceptional properties that transform houses into homes and investments into legacies.
+          } text-lg sm:text-xl md:text-2xl mb-12 text-center`}>
+            Discover exceptional properties where luxury meets lifestyle. We transform your real estate dreams into reality with unparalleled expertise and personalized service.
           </p>
 
-          {/* CTA buttons - Centered */}
+          {/* Elegant CTA buttons */}
           <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center transition-all duration-1000 ease-out delay-900 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <Link to="/listings">
-              <Button className="group bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl hover:shadow-indigo-500/25 transform hover:scale-105 transition-all duration-300 border-0">
+              <Button className="group bg-white text-slate-900 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full shadow-2xl hover:shadow-white/25 transform hover:scale-105 transition-all duration-300 border-0">
                 <Search className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                 Explore Properties
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -88,30 +88,30 @@ const Header: React.FC = () => {
             </Button>
           </div>
 
-          {/* Stats - Centered */}
-          <div className={`grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16 transition-all duration-1000 ease-out delay-1000 ${
+          {/* Minimalist stats */}
+          <div className={`grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-20 transition-all duration-1000 ease-out delay-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-white mb-2">500+</div>
-              <div className="text-white/60 text-sm">Happy Clients</div>
+              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">500+</div>
+              <div className="text-white/60 text-sm uppercase tracking-wider">Happy Clients</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-white mb-2">50+</div>
-              <div className="text-white/60 text-sm">Properties Sold</div>
+              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">50+</div>
+              <div className="text-white/60 text-sm uppercase tracking-wider">Properties Sold</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-white mb-2">5★</div>
-              <div className="text-white/60 text-sm">Client Rating</div>
+              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">5★</div>
+              <div className="text-white/60 text-sm uppercase tracking-wider">Client Rating</div>
             </div>
           </div>
 
-          {/* Scroll indicator - Centered */}
+          {/* Elegant scroll indicator */}
           <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 ease-out delay-1200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <div className="flex flex-col items-center text-white/60 group cursor-pointer">
-              <span className="text-sm font-medium mb-3 group-hover:text-white/80 transition-colors">Scroll to explore</span>
+              <span className="text-sm font-medium mb-3 group-hover:text-white/80 transition-colors uppercase tracking-wider">Discover More</span>
               <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center group-hover:border-white/50 transition-colors">
                 <ChevronDown className="h-4 w-4 mt-2 animate-bounce" />
               </div>
@@ -120,7 +120,7 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Modern bottom wave */}
+      {/* Clean bottom transition */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-20 fill-white">
           <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".3"></path>

@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader } from "../ui/card";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 import BookModal from "../../Modal/BookModal";
-import { Bed, DollarSign, MapPin, Eye, Calendar, ArrowRight, Sparkles } from "lucide-react";
+import { Bed, DollarSign, MapPin, Eye, Calendar, ArrowRight, Home } from "lucide-react";
 
 const Listings: React.FC = () => {
   const [isBookFormOpen, setIsBookFormOpen] = useState(false)
@@ -48,7 +48,7 @@ const Listings: React.FC = () => {
     content = (
       <div className="flex justify-center items-center py-20">
         <div className="text-center">
-          <PulseLoader color='#6366f1' size={15} />
+          <PulseLoader color='#0f172a' size={15} />
           <p className="mt-4 text-gray-600 font-medium">Loading exceptional properties...</p>
         </div>
       </div>
@@ -70,14 +70,14 @@ const Listings: React.FC = () => {
             }`}
             style={{ transitionDelay: `${index * 100}ms` }}
           >
-            <Card className='relative overflow-hidden rounded-3xl border-0 shadow-xl hover-lift bg-white h-full group'>
+            <Card className='relative overflow-hidden rounded-2xl border border-gray-100 shadow-lg hover-lift bg-white h-full group'>
               {/* Image Container */}
               <CardHeader className='relative p-0 overflow-hidden'>
                 {listing.status && (
                   <div className={`absolute top-4 right-4 z-10 px-3 py-1.5 rounded-full text-xs font-semibold text-white backdrop-blur-sm ${
                     listing.status === 'under construction' 
-                      ? 'bg-gradient-to-r from-orange-500 to-red-500' 
-                      : 'bg-gradient-to-r from-green-500 to-emerald-500'
+                      ? 'bg-orange-500/90' 
+                      : 'bg-green-500/90'
                   }`}>
                     {listing.status}
                   </div>
@@ -85,19 +85,19 @@ const Listings: React.FC = () => {
                 
                 <div className="relative overflow-hidden">
                   <img
-                    className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-105"
                     src={listing.imageUrl} 
                     alt={listing.name}
                     title={listing?.name}
                   />
                   
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {/* Subtle overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-4 left-4 right-4">
                       <div className="flex gap-2">
                         <Button 
                           size="sm" 
-                          className="bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30 rounded-full"
+                          className="bg-white/90 backdrop-blur-sm text-gray-900 border-0 hover:bg-white rounded-lg"
                         >
                           <Eye className="h-4 w-4 mr-1" />
                           Quick View
@@ -117,7 +117,7 @@ const Listings: React.FC = () => {
                         <MapPin className="h-4 w-4" />
                         <span className="text-sm font-medium">{listing.name}</span>
                       </div>
-                      <h3 className="font-bold text-xl text-gray-900 group-hover:text-indigo-600 transition-colors line-clamp-2">
+                      <h3 className="font-bold text-xl text-gray-900 group-hover:text-slate-800 transition-colors line-clamp-2">
                         {listing.name}
                       </h3>
                     </div>
@@ -125,11 +125,11 @@ const Listings: React.FC = () => {
 
                   {/* Property Features */}
                   <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-1 bg-gradient-to-r from-indigo-50 to-purple-50 px-3 py-1.5 rounded-full">
-                      <Bed className="h-4 w-4 text-indigo-600" />
-                      <span className="text-sm font-medium text-indigo-700">{listing.bedrooms}</span>
+                    <div className="flex items-center gap-1 bg-gray-50 px-3 py-1.5 rounded-lg">
+                      <Bed className="h-4 w-4 text-gray-600" />
+                      <span className="text-sm font-medium text-gray-700">{listing.bedrooms}</span>
                     </div>
-                    <div className="flex items-center gap-1 bg-gradient-to-r from-green-50 to-emerald-50 px-3 py-1.5 rounded-full">
+                    <div className="flex items-center gap-1 bg-green-50 px-3 py-1.5 rounded-lg">
                       <DollarSign className="h-4 w-4 text-green-600" />
                       <span className="text-sm font-semibold text-green-700">{listing.price}</span>
                     </div>
@@ -140,7 +140,7 @@ const Listings: React.FC = () => {
                 <div className="space-y-3 pt-4 border-t border-gray-100">
                   <Button 
                     onClick={() => handleBookMenu(listing)} 
-                    className='w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-3 text-base font-semibold rounded-xl shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 border-0'
+                    className='w-full bg-slate-900 hover:bg-slate-800 text-white py-3 text-base font-semibold rounded-lg shadow-lg hover:shadow-slate-900/25 transition-all duration-300 border-0'
                   >
                     <Calendar className="mr-2 h-4 w-4" />
                     Schedule Viewing
@@ -148,7 +148,7 @@ const Listings: React.FC = () => {
                   
                   <Link 
                     to={`listings/${listing.id}`}
-                    className="group flex items-center justify-center w-full text-center py-2.5 text-indigo-600 font-semibold hover:text-indigo-700 transition-colors duration-300 border border-indigo-200 rounded-xl hover:border-indigo-300 hover:bg-indigo-50"
+                    className="group flex items-center justify-center w-full text-center py-2.5 text-slate-700 font-semibold hover:text-slate-900 transition-colors duration-300 border border-gray-200 rounded-lg hover:border-gray-300 hover:bg-gray-50"
                   >
                     View Details
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -163,12 +163,12 @@ const Listings: React.FC = () => {
   }
 
   return (
-    <section ref={sectionRef} className="py-20 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-indigo-50/30">
+    <section ref={sectionRef} className="py-20 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 fade-in">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <Sparkles className="w-4 h-4" />
+          <div className="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <Home className="w-4 h-4" />
             Featured Properties
           </div>
           

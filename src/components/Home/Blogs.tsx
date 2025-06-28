@@ -38,7 +38,7 @@ const Blogs: React.FC = () => {
     content = (
       <div className="flex justify-center items-center py-20">
         <div className="text-center">
-          <PulseLoader color='#6366f1' size={15} />
+          <PulseLoader color='#0f172a' size={15} />
           <p className="mt-4 text-gray-600 font-medium">Loading market insights...</p>
         </div>
       </div>
@@ -61,19 +61,19 @@ const Blogs: React.FC = () => {
             style={{ transitionDelay: `${index * 100}ms` }}
           >
             <Link to={`/blogs/${blog.title}`}>
-              <Card className='relative overflow-hidden rounded-3xl border-0 shadow-xl hover-lift bg-white h-full group'>
+              <Card className='relative overflow-hidden rounded-2xl border border-gray-100 shadow-lg hover-lift bg-white h-full group'>
                 {/* Image Container */}
                 <CardHeader className='relative p-0 overflow-hidden'>
                   <div className="relative group">
                     <img
-                      className="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-56 object-cover transition-transform duration-700 group-hover:scale-105"
                       src={blog.imageUrl} 
                       alt={blog.title} 
                       title={blog?.title}
                     />
                     
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {/* Subtle overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="absolute bottom-4 left-4">
                         <div className="flex items-center gap-2 text-white">
                           <BookOpen className="h-4 w-4" />
@@ -84,7 +84,7 @@ const Blogs: React.FC = () => {
 
                     {/* Category Badge */}
                     <div className="absolute top-4 left-4">
-                      <span className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-3 py-1.5 rounded-full text-xs font-semibold backdrop-blur-sm">
+                      <span className="bg-slate-900/90 text-white px-3 py-1.5 rounded-lg text-xs font-semibold backdrop-blur-sm">
                         Market Insights
                       </span>
                     </div>
@@ -106,7 +106,7 @@ const Blogs: React.FC = () => {
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h3 className="font-bold text-xl text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors duration-300 line-clamp-2">
+                    <h3 className="font-bold text-xl text-gray-900 mb-3 group-hover:text-slate-800 transition-colors duration-300 line-clamp-2">
                       {blog.title}
                     </h3>
                     <p className="text-gray-600 leading-relaxed line-clamp-3">
@@ -117,10 +117,10 @@ const Blogs: React.FC = () => {
                   {/* Read More */}
                   <div className="mt-6 pt-4 border-t border-gray-100">
                     <div className="flex items-center justify-between">
-                      <span className="text-indigo-600 font-semibold group-hover:text-indigo-700 transition-colors duration-300">
+                      <span className="text-slate-700 font-semibold group-hover:text-slate-900 transition-colors duration-300">
                         Read More
                       </span>
-                      <ArrowRight className="h-4 w-4 text-indigo-600 group-hover:text-indigo-700 group-hover:translate-x-1 transition-all duration-300" />
+                      <ArrowRight className="h-4 w-4 text-slate-700 group-hover:text-slate-900 group-hover:translate-x-1 transition-all duration-300" />
                     </div>
                   </div>
                 </CardContent>
@@ -137,7 +137,7 @@ const Blogs: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 fade-in">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+          <div className="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <TrendingUp className="w-4 h-4" />
             Market Intelligence
           </div>
@@ -159,7 +159,7 @@ const Blogs: React.FC = () => {
         {/* CTA Section */}
         <div className="text-center fade-in">
           <Link to='/blogs'>
-            <Button className='bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border-0'>
+            <Button className='bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 border-0'>
               Read All Insights
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
