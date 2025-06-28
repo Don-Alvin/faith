@@ -15,7 +15,7 @@ const Header: React.FC = () => {
   return (
     <section 
       style={{backgroundImage: `url(${img})`}} 
-      className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden"
+      className="relative h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center overflow-hidden"
     >
       {/* Sophisticated overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/80 to-slate-900/90"></div>
@@ -27,8 +27,9 @@ const Header: React.FC = () => {
         <div className="absolute bottom-1/3 left-1/5 w-48 h-48 bg-white/4 rounded-full blur-3xl animate-float" style={{animationDelay: '4s'}}></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-5xl mx-auto">
+      {/* Perfectly centered content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-screen">
+        <div className="text-center max-w-4xl mx-auto">
           {/* Premium badge */}
           <div className={`inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-8 transition-all duration-1000 ease-out ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -37,33 +38,33 @@ const Header: React.FC = () => {
             Premium Real Estate Excellence
           </div>
 
-          {/* Main heading - Clean and centered */}
-          <div className="space-y-6 mb-8">
+          {/* Main heading - Smaller fonts, perfectly centered */}
+          <div className="space-y-4 mb-8">
             <h1 className={`font-display font-bold text-white leading-tight transition-all duration-1000 ease-out ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            } text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center`}>
+            } text-3xl sm:text-4xl md:text-5xl lg:text-6xl`}>
               Find Your
             </h1>
             
             <div className={`transition-all duration-1000 ease-out delay-300 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            } text-center`}>
-              <span className="font-display font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+            }`}>
+              <span className="font-display font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
                 Dream
               </span>
             </div>
             
             <h1 className={`font-display font-bold text-white transition-all duration-1000 ease-out delay-500 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            } text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center`}>
+            } text-3xl sm:text-4xl md:text-5xl lg:text-6xl`}>
               Home
             </h1>
           </div>
 
-          {/* Refined subtitle */}
-          <p className={`text-white/80 font-light leading-relaxed max-w-3xl mx-auto transition-all duration-1000 ease-out delay-700 ${
+          {/* Refined subtitle - Smaller font */}
+          <p className={`text-white/80 font-light leading-relaxed max-w-2xl mx-auto transition-all duration-1000 ease-out delay-700 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          } text-lg sm:text-xl md:text-2xl mb-12 text-center`}>
+          } text-base sm:text-lg md:text-xl mb-10`}>
             Discover exceptional properties where luxury meets lifestyle. We transform your real estate dreams into reality with unparalleled expertise and personalized service.
           </p>
 
@@ -72,50 +73,50 @@ const Header: React.FC = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <Link to="/listings">
-              <Button className="group bg-white text-slate-900 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-full shadow-2xl hover:shadow-white/25 transform hover:scale-105 transition-all duration-300 border-0">
-                <Search className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+              <Button className="group bg-white text-slate-900 hover:bg-gray-100 px-6 py-3 text-base font-semibold rounded-full shadow-2xl hover:shadow-white/25 transform hover:scale-105 transition-all duration-300 border-0">
+                <Search className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
                 Explore Properties
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             
             <Button 
               variant="outline" 
-              className="group bg-white/10 text-white border-white/30 hover:bg-white/20 px-8 py-4 text-lg font-semibold rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-white/50"
+              className="group bg-white/10 text-white border-white/30 hover:bg-white/20 px-6 py-3 text-base font-semibold rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-white/50"
             >
-              <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+              <Play className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
               Virtual Tour
             </Button>
           </div>
 
-          {/* Minimalist stats */}
-          <div className={`grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-20 transition-all duration-1000 ease-out delay-1000 ${
+          {/* Minimalist stats - Smaller */}
+          <div className={`grid grid-cols-3 gap-6 max-w-lg mx-auto mt-16 transition-all duration-1000 ease-out delay-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">500+</div>
-              <div className="text-white/60 text-sm uppercase tracking-wider">Happy Clients</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white mb-1">500+</div>
+              <div className="text-white/60 text-xs uppercase tracking-wider">Happy Clients</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">50+</div>
-              <div className="text-white/60 text-sm uppercase tracking-wider">Properties Sold</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white mb-1">50+</div>
+              <div className="text-white/60 text-xs uppercase tracking-wider">Properties Sold</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">5★</div>
-              <div className="text-white/60 text-sm uppercase tracking-wider">Client Rating</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white mb-1">5★</div>
+              <div className="text-white/60 text-xs uppercase tracking-wider">Client Rating</div>
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* Elegant scroll indicator */}
-          <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 ease-out delay-1200 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <div className="flex flex-col items-center text-white/60 group cursor-pointer">
-              <span className="text-sm font-medium mb-3 group-hover:text-white/80 transition-colors uppercase tracking-wider">Discover More</span>
-              <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center group-hover:border-white/50 transition-colors">
-                <ChevronDown className="h-4 w-4 mt-2 animate-bounce" />
-              </div>
-            </div>
+      {/* Elegant scroll indicator */}
+      <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 ease-out delay-1200 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}>
+        <div className="flex flex-col items-center text-white/60 group cursor-pointer">
+          <span className="text-sm font-medium mb-3 group-hover:text-white/80 transition-colors uppercase tracking-wider">Discover More</span>
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center group-hover:border-white/50 transition-colors">
+            <ChevronDown className="h-4 w-4 mt-2 animate-bounce" />
           </div>
         </div>
       </div>
