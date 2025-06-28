@@ -19,7 +19,7 @@ const Header = () => {
       <div className="absolute inset-0 gradient-overlay"></div>
       
       {/* Floating particles */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-20">
         <div className="absolute top-20 left-10 w-2 h-2 bg-yellow-400 rounded-full animate-float opacity-60"></div>
         <div className="absolute top-40 right-20 w-3 h-3 bg-yellow-300 rounded-full animate-float opacity-40" style={{animationDelay: '1s'}}></div>
         <div className="absolute bottom-40 left-20 w-1 h-1 bg-yellow-500 rounded-full animate-float opacity-80" style={{animationDelay: '2s'}}></div>
