@@ -3,7 +3,7 @@ import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { Label } from "../ui/label"
 import { Textarea } from "../ui/textarea"
-import { Mail, Phone, MapPin, Send, CheckCircle, Clock, Users, Award } from "lucide-react"
+import { Mail, Phone, MapPin, Send, CheckCircle, Clock, Users, Award, MessageCircle } from "lucide-react"
 
 const Contact: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -45,37 +45,36 @@ const Contact: React.FC = () => {
       title: "Call Us",
       content: "+254 750 030 357",
       description: "Mon-Fri 9am-6pm",
-      color: "from-blue-500 to-blue-600"
+      gradient: "from-blue-500 to-cyan-500"
     },
     {
       icon: Mail,
       title: "Email Us",
       content: "anadoomollo@zohomail.com",
       description: "We'll respond within 24hrs",
-      color: "from-green-500 to-green-600"
+      gradient: "from-green-500 to-emerald-500"
     },
     {
       icon: MapPin,
       title: "Visit Us",
       content: "Nairobi, Kenya",
       description: "Schedule an appointment",
-      color: "from-purple-500 to-purple-600"
+      gradient: "from-purple-500 to-pink-500"
     }
   ]
 
   const stats = [
-    { icon: Users, number: "500+", label: "Happy Clients" },
-    { icon: Award, number: "50+", label: "Properties Sold" },
-    { icon: Clock, number: "5★", label: "Client Rating" }
+    { icon: Users, number: "500+", label: "Happy Clients", gradient: "from-indigo-500 to-purple-500" },
+    { icon: Award, number: "50+", label: "Properties Sold", gradient: "from-green-500 to-emerald-500" },
+    { icon: Clock, number: "5★", label: "Client Rating", gradient: "from-yellow-500 to-orange-500" }
   ]
 
   return (
-    <section id="contactus" className="relative py-20 lg:py-32 bg-white overflow-hidden">
+    <section id="contactus" className="relative py-20 lg:py-32 bg-gradient-to-br from-slate-50 via-white to-indigo-50/50 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-50 via-white to-gray-50"></div>
-        <div className="absolute top-20 left-10 w-32 h-32 bg-yellow-400/5 rounded-full blur-xl"></div>
-        <div className="absolute bottom-20 right-10 w-48 h-48 bg-primary/5 rounded-full blur-xl"></div>
+        <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-indigo-200/30 to-purple-200/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-pink-200/30 to-rose-200/30 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,20 +82,20 @@ const Contact: React.FC = () => {
         <div className={`text-center mb-16 lg:mb-20 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <MessageCircle className="w-4 h-4" />
             Get In Touch
           </div>
           
-          <h2 className="font-bold text-gray-900 mb-6 text-4xl sm:text-5xl lg:text-6xl">
-            Ready to Find Your 
-            <span className="block bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">
-              Dream Home?
+          <h2 className="font-display font-bold text-gray-900 mb-6 text-4xl sm:text-5xl lg:text-6xl">
+            Ready to Start Your 
+            <span className="block text-gradient">
+              Property Journey?
             </span>
           </h2>
           
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Let's discuss your real estate goals. Our expert team is here to guide you through every step of your property journey.
+            Connect with our expert team today. We're here to guide you through every step of your real estate experience with personalized service and professional expertise.
           </p>
         </div>
 
@@ -106,11 +105,11 @@ const Contact: React.FC = () => {
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
           }`}>
             <div className="space-y-6">
-              <h3 className="font-bold text-gray-900 text-3xl lg:text-4xl">
-                Let's Start a Conversation
+              <h3 className="font-display font-bold text-gray-900 text-3xl lg:text-4xl">
+                Let's Connect
               </h3>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Whether you're buying, selling, or investing, we're here to make your real estate dreams a reality with personalized service and expert guidance.
+                Whether you're buying your first home, selling a property, or building an investment portfolio, our dedicated team is ready to turn your real estate goals into reality.
               </p>
             </div>
 
@@ -119,18 +118,18 @@ const Contact: React.FC = () => {
               {contactInfo.map((item, index) => (
                 <div 
                   key={index}
-                  className={`group p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:-translate-y-1 ${
+                  className={`group p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-xl border border-white/50 hover:border-white/80 transition-all duration-300 hover:-translate-y-1 ${
                     isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
                   }`}
                   style={{ transitionDelay: `${(index + 1) * 200}ms` }}
                 >
                   <div className="flex items-start gap-4">
-                    <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${item.gradient} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                       <item.icon className="h-6 w-6 text-white" />
                     </div>
                     <div className="flex-1">
                       <h4 className="font-semibold text-gray-900 text-lg mb-1">{item.title}</h4>
-                      <p className="text-primary font-medium mb-1">{item.content}</p>
+                      <p className="text-indigo-600 font-medium mb-1">{item.content}</p>
                       <p className="text-gray-500 text-sm">{item.description}</p>
                     </div>
                   </div>
@@ -144,7 +143,7 @@ const Contact: React.FC = () => {
             }`}>
               {stats.map((stat, index) => (
                 <div key={index} className="text-center group">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-primary/80 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <div className={`w-12 h-12 bg-gradient-to-r ${stat.gradient} rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                     <stat.icon className="h-6 w-6 text-white" />
                   </div>
                   <div className="text-2xl font-bold text-gray-900 mb-1">{stat.number}</div>
@@ -158,10 +157,10 @@ const Contact: React.FC = () => {
           <div className={`transition-all duration-1000 delay-500 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
           }`}>
-            <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/50 overflow-hidden">
               {/* Form Header */}
-              <div className="bg-gradient-to-r from-primary to-primary/90 p-8 text-white">
-                <h3 className="text-2xl font-bold mb-2">Send us a Message</h3>
+              <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-8 text-white">
+                <h3 className="font-display text-2xl font-bold mb-2">Send us a Message</h3>
                 <p className="text-white/80">We'll get back to you within 24 hours</p>
               </div>
 
@@ -171,7 +170,7 @@ const Contact: React.FC = () => {
                   <div className="space-y-2">
                     <Label htmlFor='name' className="text-gray-700 font-medium">Full Name</Label>
                     <Input 
-                      className='border-gray-200 rounded-xl h-12 px-4 focus:border-primary focus:ring-primary/20 transition-all duration-300 hover:border-gray-300' 
+                      className='border-gray-200 rounded-xl h-12 px-4 focus:border-indigo-500 focus:ring-indigo-500/20 transition-all duration-300 hover:border-gray-300 bg-white/50' 
                       id='name' 
                       type='text' 
                       name='name' 
@@ -185,7 +184,7 @@ const Contact: React.FC = () => {
                   <div className="space-y-2">
                     <Label htmlFor='email' className="text-gray-700 font-medium">Email Address</Label>
                     <Input 
-                      className='border-gray-200 rounded-xl h-12 px-4 focus:border-primary focus:ring-primary/20 transition-all duration-300 hover:border-gray-300' 
+                      className='border-gray-200 rounded-xl h-12 px-4 focus:border-indigo-500 focus:ring-indigo-500/20 transition-all duration-300 hover:border-gray-300 bg-white/50' 
                       id='email' 
                       type='email' 
                       name='email' 
@@ -200,7 +199,7 @@ const Contact: React.FC = () => {
                 <div className="space-y-2">
                   <Label htmlFor='number' className="text-gray-700 font-medium">Phone Number</Label>
                   <Input 
-                    className='border-gray-200 rounded-xl h-12 px-4 focus:border-primary focus:ring-primary/20 transition-all duration-300 hover:border-gray-300' 
+                    className='border-gray-200 rounded-xl h-12 px-4 focus:border-indigo-500 focus:ring-indigo-500/20 transition-all duration-300 hover:border-gray-300 bg-white/50' 
                     id='number' 
                     type='tel' 
                     name='number' 
@@ -214,7 +213,7 @@ const Contact: React.FC = () => {
                 <div className="space-y-2">
                   <Label htmlFor='message' className="text-gray-700 font-medium">Message</Label>
                   <Textarea 
-                    className='border-gray-200 rounded-xl p-4 min-h-[120px] focus:border-primary focus:ring-primary/20 transition-all duration-300 hover:border-gray-300 resize-none' 
+                    className='border-gray-200 rounded-xl p-4 min-h-[120px] focus:border-indigo-500 focus:ring-indigo-500/20 transition-all duration-300 hover:border-gray-300 resize-none bg-white/50' 
                     placeholder='Tell us about your real estate needs...' 
                     name='message' 
                     id='message' 
@@ -224,7 +223,7 @@ const Contact: React.FC = () => {
                   />
                 </div>
                 
-                <Button className='w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border-0'>
+                <Button className='w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border-0'>
                   <Send className="mr-2 h-5 w-5" />
                   Send Message
                 </Button>
