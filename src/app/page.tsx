@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
+import { getListings } from "@/api/listingsApi";
+import { getBlogs } from "@/api/blogsApi";
 import Header from "@/components/Home/Header";
 import Listings from "@/components/Home/Listings";
 import WhyLamona from "@/components/Home/WhyLamona";
@@ -16,13 +18,18 @@ export const metadata: Metadata = buildMetadata({
   url: "/",
 });
 
-export default function Home() {
+export default async function Home() {
+  const [listings, blogs] = await Promise.all([
+    getListings().catch(() => []),
+    getBlogs().catch(() => []),
+  ]);
+
   return (
     <div>
       <Header />
-      <Listings />
+      <Listings listings={listings} />
       <WhyLamona />
-      <Blogs />
+      <Blogs blogs={blogs} />
       <Contact />
       <Testimonials />
     </div>

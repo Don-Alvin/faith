@@ -1,17 +1,19 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react";
-import { PulseLoader } from "react-spinners";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useBlogs } from "@/hooks/useBlogs";
 import { Calendar, Clock, ArrowRight, BookOpen } from "lucide-react";
+import type { Blog } from "@/types";
 
-const Blogs = () => {
+interface BlogsProps {
+  blogs: Blog[];
+}
+
+const Blogs = ({ blogs }: BlogsProps) => {
   const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set())
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
-  const { isLoading, blogs } = useBlogs()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -33,22 +35,8 @@ const Blogs = () => {
     return () => observer.disconnect()
   }, [blogs])
 
-  let content;
   const limit = 6;
-
-  if (isLoading) {
-    content = (
-      <div className="flex justify-center items-center py-20">
-        <div className="text-center">
-          <PulseLoader color='#BB7F10' size={15} />
-          <p className="mt-4 text-gray-600 font-medium">Loading latest insights...</p>
-        </div>
-      </div>
-    )
-  }
-
-  if (blogs) {
-    content = (
+  const content = (
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {blogs.slice(0, limit)?.map((blog, index) => (
           <div
@@ -131,8 +119,7 @@ const Blogs = () => {
           </div>
         ))}
       </div>
-    )
-  }
+  );
 
   return (
     <section className="py-20 bg-white">

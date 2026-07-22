@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
+import { getBlogs } from "@/api/blogsApi";
 import BlogsPageContent from "@/components/Blogs/BlogsPageContent";
 
 export const metadata: Metadata = buildMetadata({
@@ -11,6 +12,7 @@ export const metadata: Metadata = buildMetadata({
   url: "/blogs",
 });
 
-export default function BlogsPage() {
-  return <BlogsPageContent />;
+export default async function BlogsPage() {
+  const blogs = await getBlogs().catch(() => []);
+  return <BlogsPageContent blogs={blogs} />;
 }

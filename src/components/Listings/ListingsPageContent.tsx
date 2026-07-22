@@ -1,16 +1,19 @@
 "use client";
 
 import { useState } from 'react';
-import { useListings } from '@/hooks/useListings';
-import { PulseLoader } from 'react-spinners';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import BookModal from '@/Modal/BookModal';
 import { Bed, HandCoins, MapPin, Calendar } from 'lucide-react';
+import { listingHref } from '@/lib/slug';
 import type { Listing } from '@/types';
 
-const ListingsPageContent = () => {
+interface ListingsPageContentProps {
+  listings: Listing[];
+}
+
+const ListingsPageContent = ({ listings }: ListingsPageContentProps) => {
   const [isBookFormOpen, setIsBookFormOpen] = useState(false);
   const [selectedListing, setSelectedListing] = useState<Listing | null>(null);
 
@@ -19,33 +22,7 @@ const ListingsPageContent = () => {
     setIsBookFormOpen(!isBookFormOpen);
   };
 
-  const { isLoading, error, listings, isError } = useListings();
-
-  let content: React.ReactNode;
-
-  if (isLoading) {
-    content = (
-      <div className="flex justify-center items-center py-20">
-        <div className="text-center">
-          <PulseLoader color="#101a15" size={15} />
-          <p className="mt-4 text-muted-foreground font-medium">Loading properties...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (isError) {
-    content = (
-      <div className="text-center py-20">
-        <p className="text-red-500 text-lg">
-          Oops! We encountered an error: {error?.message}
-        </p>
-      </div>
-    );
-  }
-
-  if (listings) {
-    content = (
+  const content = (
       <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {listings.map((listing) => (
           <Card
@@ -112,7 +89,7 @@ const ListingsPageContent = () => {
                 </Button>
 
                 <Link
-                  href={`/listings/${listing.id}`}
+                  href={listingHref(listing)}
                   className="block w-full text-center py-2 text-accent-foreground font-semibold hover:text-[#b07d10] transition-colors duration-300 border border-accent/20 rounded-xl hover:border-accent/30 hover:bg-accent/10 text-sm sm:text-base"
                 >
                   View Details
@@ -122,8 +99,7 @@ const ListingsPageContent = () => {
           </Card>
         ))}
       </div>
-    );
-  }
+  );
 
   return (
     <section className="container-responsive py-16 sm:py-20 lg:py-24 mt-16 sm:mt-20 lg:mt-24">

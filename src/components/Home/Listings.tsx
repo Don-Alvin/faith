@@ -1,14 +1,17 @@
 "use client"
 
 import { useState } from "react";
-import { PulseLoader } from "react-spinners";
-import { useListings } from "@/hooks/useListings"
 import Link from "next/link";
 import BookModal from "@/Modal/BookModal";
 import { MapPin } from "lucide-react";
+import { listingHref } from "@/lib/slug";
 import type { Listing } from "@/types";
 
-const Listings = () => {
+interface ListingsProps {
+  listings: Listing[];
+}
+
+const Listings = ({ listings }: ListingsProps) => {
   const [isBookFormOpen, setIsBookFormOpen] = useState(false)
   const [selectedListing, setSelectedListing] = useState<Listing | null>(null)
 
@@ -17,28 +20,12 @@ const Listings = () => {
     setIsBookFormOpen(!isBookFormOpen)
   }
 
-  const { isLoading, listings } = useListings()
-
-  let content;
   const limit = 6;
-
-  if (isLoading) {
-    content = (
-      <div className="flex justify-center items-center py-20">
-        <div className="text-center">
-          <PulseLoader color='#101a15' size={15} />
-          <p className="mt-4 text-muted-foreground font-medium">Loading amazing properties...</p>
-        </div>
-      </div>
-    )
-  }
-
-  if (listings) {
-    content = (
+  const content = (
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {listings.slice(0, limit)?.map((listing) => (
           <div key={listing.id} className="group bg-white rounded-2xl overflow-hidden border border-border">
-            <Link href={`/listings/${listing.id}`} className="block">
+            <Link href={listingHref(listing)} className="block">
               <div className="relative h-[210px] overflow-hidden">
                 {listing.status && (
                   <span className={`absolute top-3.5 left-3.5 z-10 px-3 py-1.5 rounded-md text-xs font-semibold text-white ${
@@ -58,7 +45,7 @@ const Listings = () => {
 
             <div className="p-5">
               <div className="font-display text-xl font-bold text-foreground mb-0.5">{listing.price}</div>
-              <Link href={`/listings/${listing.id}`} className="block text-[15px] font-medium text-foreground mb-1 hover:text-accent-foreground transition-colors">
+              <Link href={listingHref(listing)} className="block text-[15px] font-medium text-foreground mb-1 hover:text-accent-foreground transition-colors">
                 {listing.name}
               </Link>
               <div className="text-sm text-muted-foreground mb-4">{listing.bedrooms} bd{listing.location ? ` · ${listing.location}` : ''}</div>
@@ -79,8 +66,7 @@ const Listings = () => {
           </div>
         ))}
       </div>
-    )
-  }
+  );
 
   return (
     <section className="py-16 sm:py-20 bg-background">

@@ -1,15 +1,30 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo";
+import { getBlogByTitle } from "@/api/blogsApi";
 import BlogDetail from "@/components/Blog/BlogDetail";
 
-export const metadata: Metadata = buildMetadata({
-  title: "Article",
-  description:
-    "Read expert real estate insights and market analysis from Lamona Realtors",
-  keywords: "real estate blog, property market, Kenya real estate",
-  url: "/blogs",
-});
+export async function generateMetadata({ params }: { params: { title: string } }): Promise<Metadata> {
+  const blog = await getBlogByTitle(params.title);
 
-export default function BlogPage({ params }: { params: { title: string } }) {
-  return <BlogDetail title={params.title} />;
+  if (!blog) {
+    return buildMetadata({
+      title: "Article Not Found",
+      description: "This article could not be found.",
+      url: `/blogs/${params.title}`,
+    });
+  }
+
+  return buildMetadata({
+    title: blog.title,
+    description: blog.intro,
+    keywords: `${blog.title}, real estate blog, property market, Kenya real estate`,
+    url: `/blogs/${params.title}`,
+    image: blog.imageUrl,
+    type: "article",
+  });
+}
+
+export default async function BlogPage({ params }: { params: { title: string } }) {
+  const blog = await getBlogByTitle(params.title);
+  return <BlogDetail blog={blog} />;
 }

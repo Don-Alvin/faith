@@ -4,7 +4,6 @@ import { Montserrat } from "next/font/google";
 import Navbar from "@/components/Layout/Navbar";
 import Footer from "@/components/Layout/Footer";
 import { JsonLd } from "@/components/SEO/JsonLd";
-import { Providers } from "./providers";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -63,13 +62,11 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body>
-        <Providers>
-          <main className="flex flex-col min-h-screen">
-            <Navbar />
-            <div className="flex-1">{children}</div>
-            <Footer />
-          </main>
-        </Providers>
+        <main className="flex flex-col min-h-screen">
+          <Navbar />
+          <div className="flex-1">{children}</div>
+          <Footer />
+        </main>
         <div id="portal" />
       </body>
     </html>

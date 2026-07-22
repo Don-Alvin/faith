@@ -1,46 +1,32 @@
-"use client";
-
-import { PulseLoader } from "react-spinners";
 import { Separator } from "@/components/ui/separator";
-import { useBlogs } from "@/hooks/useBlogs";
 import { Calendar, Clock, User, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import type { Blog } from "@/types";
 
 interface BlogDetailProps {
-  title: string;
+  blog: Blog | null;
 }
 
-const BlogDetail = ({ title }: BlogDetailProps) => {
-  const { blogs, error, isLoading, isError } = useBlogs();
-
-  let content: React.ReactNode;
-
-  if (isLoading) {
-    content = (
-      <div className="flex justify-center items-center py-20">
-        <div className="text-center">
-          <PulseLoader color="#BB7F10" size={15} />
-          <p className="mt-4 text-gray-600 font-medium">Loading article...</p>
+const BlogDetail = ({ blog }: BlogDetailProps) => {
+  if (!blog) {
+    return (
+      <div className="container-responsive py-16 sm:py-20 lg:py-24 mt-16 sm:mt-20 lg:mt-24">
+        <div className="text-center py-20">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Article Not Found</h2>
+          <p className="text-gray-600 mb-8">The article you&apos;re looking for doesn&apos;t exist or has been moved.</p>
+          <Link href="/blogs">
+            <Button className="bg-primary text-white hover:bg-primary/90">
+              Browse All Articles
+            </Button>
+          </Link>
         </div>
       </div>
     );
   }
 
-  if (isError) {
-    content = (
-      <div className="text-center py-20">
-        <p className="text-red-500 text-lg">
-          Oops! We encountered an error: {error?.message}
-        </p>
-      </div>
-    );
-  }
-
-  const blog = blogs?.find(blog => blog.title === title);
-
-  if (blog) {
-    content = (
+  return (
+    <div className="container-responsive py-16 sm:py-20 lg:py-24 mt-16 sm:mt-20 lg:mt-24">
       <article className="max-w-4xl mx-auto">
         {/* Back Button */}
         <div className="mb-8">
@@ -127,24 +113,6 @@ const BlogDetail = ({ title }: BlogDetailProps) => {
           </div>
         </footer>
       </article>
-    );
-  } else if (!isLoading && !blog) {
-    content = (
-      <div className="text-center py-20">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Article Not Found</h2>
-        <p className="text-gray-600 mb-8">The article you&apos;re looking for doesn&apos;t exist or has been moved.</p>
-        <Link href="/blogs">
-          <Button className="bg-primary text-white hover:bg-primary/90">
-            Browse All Articles
-          </Button>
-        </Link>
-      </div>
-    );
-  }
-
-  return (
-    <div className="container-responsive py-16 sm:py-20 lg:py-24 mt-16 sm:mt-20 lg:mt-24">
-      {content}
     </div>
   );
 };

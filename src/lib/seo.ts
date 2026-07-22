@@ -23,11 +23,15 @@ export function buildMetadata({
   url = "/",
   type = "website",
 }: BuildMetadataOptions): Metadata {
+  // Root layout's `title.template` ("%s | Lamona Realtors") already appends the
+  // site name for the <title> tag, so `title` here must stay unsuffixed or the
+  // rendered title doubles up ("X | Lamona Realtors | Lamona Realtors").
+  // OpenGraph/Twitter don't go through that template, so they need the full form.
   const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
   const fullImage = image.startsWith("http") ? image : `${SITE_URL}${image}`;
 
   return {
-    title: fullTitle,
+    title,
     description,
     keywords,
     alternates: {

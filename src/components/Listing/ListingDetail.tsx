@@ -2,23 +2,21 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { PulseLoader } from 'react-spinners';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Separator } from '@/components/ui/separator';
-import { useListings } from '@/hooks/useListings';
 import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { BadgeCheck, MapPin, ArrowLeft, Bed, Bath, Square, Calendar } from 'lucide-react';
+import type { Listing } from '@/types';
 
 interface ListingDetailProps {
-  id: string;
+  listing: Listing | null;
 }
 
-const ListingDetail = ({ id }: ListingDetailProps) => {
-  const { isLoading, error, listings, isError } = useListings();
-  const [currentImage, setCurrentImage] = useState<string | null>(null);
+const ListingDetail = ({ listing }: ListingDetailProps) => {
+  const [currentImage, setCurrentImage] = useState<string | null>(listing?.imageUrl ?? null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,41 +31,28 @@ const ListingDetail = ({ id }: ListingDetailProps) => {
     });
   };
 
-  let content: React.ReactNode;
-
-  if (isLoading) {
-    content = (
-      <div className="flex justify-center items-center py-20">
-        <div className="text-center">
-          <PulseLoader color="#101a15" size={15} />
-          <p className="mt-4 text-muted-foreground font-medium">Loading property details...</p>
+  if (!listing) {
+    return (
+      <div className="container-responsive py-16 sm:py-20 lg:py-24 mt-16 sm:mt-20 lg:mt-24">
+        <div className="text-center py-20">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Property Not Found</h2>
+          <p className="text-muted-foreground mb-8">The property you&apos;re looking for doesn&apos;t exist or has been removed.</p>
+          <Link href="/listings">
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+              Browse All Properties
+            </Button>
+          </Link>
         </div>
       </div>
     );
   }
 
-  if (isError) {
-    content = (
-      <div className="text-center py-20">
-        <p className="text-red-500 text-lg">
-          Oops! We encountered an error: {error?.message}
-        </p>
-      </div>
-    );
-  }
+  const changeImage = (imageUrl: string) => {
+    setCurrentImage(imageUrl);
+  };
 
-  const listing = listings?.find((listing) => listing.id === parseInt(id || '0'));
-
-  if (listing) {
-    if (!currentImage) {
-      setCurrentImage(listing.imageUrl);
-    }
-
-    const changeImage = (imageUrl: string) => {
-      setCurrentImage(imageUrl);
-    };
-
-    content = (
+  return (
+    <div className="container-responsive py-16 sm:py-20 lg:py-24 mt-16 sm:mt-20 lg:mt-24">
       <div className="max-w-7xl mx-auto">
         {/* Back Button */}
         <div className="mb-8">
@@ -286,24 +271,6 @@ const ListingDetail = ({ id }: ListingDetailProps) => {
           )}
         </div>
       </div>
-    );
-  } else if (!isLoading && !listing) {
-    content = (
-      <div className="text-center py-20">
-        <h2 className="text-2xl font-bold text-foreground mb-4">Property Not Found</h2>
-        <p className="text-muted-foreground mb-8">The property you&apos;re looking for doesn&apos;t exist or has been removed.</p>
-        <Link href="/listings">
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-            Browse All Properties
-          </Button>
-        </Link>
-      </div>
-    );
-  }
-
-  return (
-    <div className="container-responsive py-16 sm:py-20 lg:py-24 mt-16 sm:mt-20 lg:mt-24">
-      {content}
     </div>
   );
 };
