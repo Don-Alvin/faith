@@ -1,16 +1,17 @@
-import { Mail, Phone, MapPin, ArrowRight, Heart } from "lucide-react"
-import { Link } from "react-router-dom"
+import { FacebookIcon, Instagram, Mail, Phone, MapPin, ArrowRight } from "lucide-react"
+import Link from "next/link"
+import BrandLogo from "./BrandLogo"
 
-const Footer: React.FC = () => {
+const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   const footerLinks = [
     {
-      title: "Navigation",
+      title: "Quick Links",
       links: [
         { name: "Home", href: "/" },
-        { name: "Properties", href: "/listings" },
-        { name: "Insights", href: "/blogs" },
+        { name: "Listings", href: "/listings" },
+        { name: "Blog", href: "/blogs" },
         { name: "About", href: "/about" }
       ]
     },
@@ -19,68 +20,76 @@ const Footer: React.FC = () => {
       links: [
         { name: "Property Sales", href: "#" },
         { name: "Property Rentals", href: "#" },
-        { name: "Investment Consulting", href: "#" },
+        { name: "Investment Advice", href: "#" },
         { name: "Property Management", href: "#" }
-      ]
-    },
-    {
-      title: "Resources",
-      links: [
-        { name: "Market Reports", href: "#" },
-        { name: "Investment Guide", href: "#" },
-        { name: "Financing Options", href: "#" },
-        { name: "Legal Support", href: "#" }
       ]
     }
   ]
 
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-gray-900 to-slate-900 relative overflow-hidden">
-      {/* Subtle background elements */}
+    <footer className="gradient-primary relative overflow-hidden">
+      {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/3 rounded-full blur-3xl"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 bg-accent/5 rounded-full blur-xl"></div>
+        <div className="absolute bottom-10 right-10 w-48 h-48 bg-accent/5 rounded-full blur-xl"></div>
       </div>
 
       <div className="relative z-10">
         {/* Main Footer Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Company Info */}
             <div className="lg:col-span-2 space-y-6">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center">
-                  <span className="font-bold text-slate-900 text-lg">L</span>
-                </div>
-                <span className="font-display font-bold text-white text-2xl">Lamona</span>
+              <div className="flex items-center">
+                <BrandLogo className="h-14" />
               </div>
-              
-              <p className="text-gray-300 text-lg leading-relaxed max-w-md">
-                Transforming real estate experiences through innovation, expertise, and unwavering commitment to our clients' success.
+
+              <p className="text-white/70 text-lg leading-relaxed max-w-md">
+                Your trusted partner in finding the perfect property. We specialize in connecting dreams with reality through exceptional real estate services.
               </p>
 
               {/* Contact Info */}
               <div className="space-y-4">
-                <div className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group">
-                  <div className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Phone className="h-5 w-5 text-white" />
+                <div className="flex items-center gap-3 text-white/70 hover:text-accent transition-colors">
+                  <div className="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center">
+                    <Phone className="h-5 w-5" />
                   </div>
                   <span className="text-lg">+254 750 030 357</span>
                 </div>
-                
-                <div className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group">
-                  <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Mail className="h-5 w-5 text-white" />
+
+                <div className="flex items-center gap-3 text-white/70 hover:text-accent transition-colors">
+                  <div className="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center">
+                    <Mail className="h-5 w-5" />
                   </div>
                   <span className="text-lg">anadoomollo@zohomail.com</span>
                 </div>
 
-                <div className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors group">
-                  <div className="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <MapPin className="h-5 w-5 text-white" />
+                <div className="flex items-center gap-3 text-white/70 hover:text-accent transition-colors">
+                  <div className="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center">
+                    <MapPin className="h-5 w-5" />
                   </div>
                   <span className="text-lg">Nairobi, Kenya</span>
                 </div>
+              </div>
+
+              {/* Social Links */}
+              <div className="flex gap-4 pt-4">
+                <a
+                  href='https://www.facebook.com/share/aQucT6BtD6U7vhy8/?mibextid=qi2Omg'
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25"
+                >
+                  <FacebookIcon className="h-5 w-5 text-white" />
+                </a>
+                <a
+                  href='https://www.instagram.com/lamonarealtors'
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl flex items-center justify-center hover:scale-110 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/25"
+                >
+                  <Instagram className="h-5 w-5 text-white" />
+                </a>
               </div>
             </div>
 
@@ -91,9 +100,9 @@ const Footer: React.FC = () => {
                 <ul className="space-y-3">
                   {section.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
-                      <Link 
-                        to={link.href}
-                        className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2 group"
+                      <Link
+                        href={link.href}
+                        className="text-white/70 hover:text-accent transition-colors duration-300 flex items-center gap-2 group"
                       >
                         <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <span>{link.name}</span>
@@ -107,23 +116,23 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Newsletter Section */}
-        <div className="border-t border-gray-800">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="border-t border-white/10">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">
             <div className="text-center space-y-6">
               <h3 className="font-display text-3xl font-bold text-white">
-                Stay Updated with Market Insights
+                Stay Updated with Market Trends
               </h3>
-              <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-                Get exclusive property listings, market analysis, and investment opportunities delivered to your inbox.
+              <p className="text-white/70 text-lg max-w-2xl mx-auto">
+                Get the latest property listings, market insights, and exclusive deals delivered to your inbox.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-gray-400 focus:border-white/40 focus:ring-white/20 transition-all duration-300 backdrop-blur-sm"
+                  className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/50 focus:border-accent focus:ring-2 focus:ring-ring/30 transition-all duration-300"
                 />
-                <button className="px-6 py-3 bg-white text-slate-900 hover:bg-gray-100 font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg">
+                <button className="px-6 py-3 gradient-gold text-accent-foreground font-semibold rounded-xl transition-all duration-300 hover:scale-105">
                   Subscribe
                 </button>
               </div>
@@ -132,16 +141,16 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="border-t border-white/10">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-400 text-center md:text-left flex items-center gap-2">
-                © {currentYear} Lamona Realtors. Made with <Heart className="h-4 w-4 text-red-500" /> in Kenya.
+              <p className="text-white/60 text-center md:text-left">
+                © {currentYear} Lamona Realtors. All rights reserved.
               </p>
-              <div className="flex gap-6 text-sm text-gray-400">
-                <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-                <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>
-                <Link to="#" className="hover:text-white transition-colors">Cookie Policy</Link>
+              <div className="flex gap-6 text-sm text-white/60">
+                <Link href="#" className="hover:text-accent transition-colors">Privacy Policy</Link>
+                <Link href="#" className="hover:text-accent transition-colors">Terms of Service</Link>
+                <Link href="#" className="hover:text-accent transition-colors">Cookie Policy</Link>
               </div>
             </div>
           </div>
