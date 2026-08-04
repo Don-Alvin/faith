@@ -35,9 +35,14 @@ const WhyLamona = () => {
   return (
     <>
       <div className="max-w-[1240px] mx-auto px-6 sm:px-10 py-14 sm:py-16">
-        <h2 className="text-xs sm:text-sm uppercase tracking-widest text-muted-foreground mb-9">
-          Why buyers choose Lamona
-        </h2>
+        <div className="mb-9">
+          <div className="text-xs sm:text-sm uppercase tracking-widest text-[#b07d10] font-semibold mb-3">
+            Why Lamona
+          </div>
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground">
+            Why buyers choose Lamona
+          </h2>
+        </div>
         <div className="grid sm:grid-cols-3 gap-10">
           {reasons.map((reason) => (
             <div key={reason.title}>
@@ -50,6 +55,14 @@ const WhyLamona = () => {
 
       <div className="bg-secondary">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-10 py-14 sm:py-16">
+          <div className="mb-9">
+            <div className="text-xs sm:text-sm uppercase tracking-widest text-[#b07d10] font-semibold mb-3">
+              How it works
+            </div>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground">
+              From search to site visit in three steps
+            </h2>
+          </div>
           <div className="grid sm:grid-cols-3 gap-8">
             {steps.map((step) => (
               <div key={step.number}>

@@ -125,7 +125,7 @@ const Blogs = ({ blogs }: BlogsProps) => {
     <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16 fade-in">
+        <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-accent/15 text-[#b07d10] px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
             Expert Insights
@@ -146,7 +146,7 @@ const Blogs = ({ blogs }: BlogsProps) => {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center fade-in">
+        <div className="text-center">
           <Link href='/blogs'>
             <Button className='btn-primary gradient-gold text-accent-foreground px-8 py-4 text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105'>
               Read All Articles

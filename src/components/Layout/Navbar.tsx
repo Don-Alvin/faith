@@ -8,7 +8,7 @@ const Navbar = () => {
   const isLargeScreen = useMediaQuery('(min-width: 768px)')
 
   return (
-    <section className="fixed z-20 w-full">
+    <section className="sticky top-0 z-20 w-full">
       {isLargeScreen ? <MainNav /> : <MobileNav />}
     </section>
   )

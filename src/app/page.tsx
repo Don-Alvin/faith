@@ -26,7 +26,7 @@ export default async function Home() {
 
   return (
     <div>
-      <Header />
+      <Header listings={listings} />
       <Listings listings={listings} />
       <WhyLamona />
       <Blogs blogs={blogs} />

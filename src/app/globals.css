@@ -85,6 +85,25 @@ html {
   }
 }
 
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-left {
+  animation: marquee-left var(--marquee-duration, 32s) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-left {
+    animation: none;
+  }
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
 }

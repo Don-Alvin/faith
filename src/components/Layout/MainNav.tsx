@@ -5,22 +5,18 @@ import Link from 'next/link'
 import BrandLogo from './BrandLogo'
 
 const MainNav = () => {
-  const [isActive, setIsActive] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
 
-    const activeNavbar = () => {
-      if (window.scrollY >= 80) {
-        setIsActive(true)
-      } else {
-        setIsActive(false)
-      }
+    const onScroll = () => {
+      setIsScrolled(window.scrollY >= 80)
     }
 
-    window.addEventListener("scroll", activeNavbar)
-    return () => window.removeEventListener("scroll", activeNavbar)
+    window.addEventListener("scroll", onScroll)
+    return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
   const navLinks = [
@@ -30,7 +26,7 @@ const MainNav = () => {
   ]
 
   return (
-    <div className={`transition-all duration-500 ease-in-out ${isActive ? 'glass-dark shadow-2xl' : 'bg-transparent'} ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+    <div className={`bg-white transition-all duration-500 ease-in-out ${isScrolled ? 'shadow-md' : ''} ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
       <div className="flex justify-between items-center p-6 max-w-7xl mx-auto">
         {/* Logo */}
         <Link href="/" className="flex items-center group">
@@ -43,7 +39,7 @@ const MainNav = () => {
             <Link
               key={link.title}
               href={link.href}
-              className="relative text-lg font-medium text-accent transition-all duration-300 hover:text-[#c8860f] group"
+              className="relative text-lg font-medium text-foreground transition-all duration-300 hover:text-[#b07d10] group"
               style={{
                 animationDelay: `${index * 100}ms`
               }}
@@ -56,7 +52,7 @@ const MainNav = () => {
 
         {/* CTA Button */}
         <div className="hidden md:flex items-center gap-4">
-          <span className="text-sm text-accent">+254 750 030 357</span>
+          <span className="text-sm text-muted-foreground">+254 750 030 357</span>
           <a
             href='#contactus'
             className="btn-primary gradient-gold text-accent-foreground px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent/25"
