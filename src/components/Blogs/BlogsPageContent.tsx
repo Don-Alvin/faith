@@ -11,7 +11,7 @@ const BlogsPageContent = ({ blogs }: BlogsPageContentProps) => {
   const content = (
       <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {blogs.map((blog) => (
-          <Link key={blog.id} href={`/blogs/${blog.title}`} className="group">
+          <Link key={blog.id} href={`/blogs/${encodeURIComponent(blog.title)}`} className="group">
             <Card className="relative overflow-hidden rounded-2xl border border-border shadow-xl hover-lift hover-glow bg-white h-full transition-all duration-300">
               <CardHeader className="relative p-0 overflow-hidden">
                 <div className="relative group">

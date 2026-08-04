@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { Calendar, Clock, User, ArrowLeft } from "lucide-react";
+import { Calendar, Clock, User, ArrowLeft, Home } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import type { Blog } from "@/types";
@@ -15,11 +15,17 @@ const BlogDetail = ({ blog }: BlogDetailProps) => {
         <div className="text-center py-20">
           <h2 className="text-2xl font-bold text-foreground mb-4">Article Not Found</h2>
           <p className="text-muted-foreground mb-8">The article you&apos;re looking for doesn&apos;t exist or has been moved.</p>
-          <Link href="/blogs">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-              Browse All Articles
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/blogs">
+              <Button className="gradient-gold text-accent-foreground">
+                Browse All Articles
+              </Button>
+            </Link>
+            <Link href="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-[#b07d10] font-medium transition-colors">
+              <Home className="h-4 w-4" />
+              Back to Home
+            </Link>
+          </div>
         </div>
       </div>
     );

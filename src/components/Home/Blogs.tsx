@@ -50,7 +50,7 @@ const Blogs = ({ blogs }: BlogsProps) => {
             }`}
             style={{ transitionDelay: `${index * 100}ms` }}
           >
-            <Link href={`/blogs/${blog.title}`}>
+            <Link href={`/blogs/${encodeURIComponent(blog.title)}`}>
               <Card className='relative overflow-hidden rounded-2xl border border-border shadow-xl hover-lift hover-glow bg-white h-full'>
                 {/* Image Container */}
                 <CardHeader className='relative p-0 overflow-hidden'>

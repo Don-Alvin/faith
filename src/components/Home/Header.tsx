@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Search } from 'lucide-react'
 import BookModal from '@/Modal/BookModal'
 
 const Header = () => {
@@ -41,31 +40,6 @@ const Header = () => {
             </Link>
           </div>
         </div>
-
-        {/* Search bar */}
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-10">
-          <Link
-            href="/listings"
-            className="bg-background rounded-t-2xl p-3 flex flex-col sm:flex-row gap-2 sm:items-stretch hover:brightness-[0.98] transition"
-          >
-            <div className="flex-1 px-4 py-2">
-              <div className="text-[11px] uppercase tracking-wide text-muted-foreground">Location</div>
-              <div className="text-sm text-foreground">Any Nairobi neighborhood</div>
-            </div>
-            <div className="flex-none sm:w-44 px-4 py-2 sm:border-l border-border">
-              <div className="text-[11px] uppercase tracking-wide text-muted-foreground">Budget</div>
-              <div className="text-sm text-foreground">KES 15M – 100M</div>
-            </div>
-            <div className="flex-none sm:w-32 px-4 py-2 sm:border-l border-border">
-              <div className="text-[11px] uppercase tracking-wide text-muted-foreground">Beds</div>
-              <div className="text-sm text-foreground">2+</div>
-            </div>
-            <div className="gradient-primary text-white rounded-lg px-9 py-3 flex items-center justify-center text-sm font-semibold gap-2">
-              <Search className="h-4 w-4" />
-              Search
-            </div>
-          </Link>
-        </div>
       </div>
 
       {/* Hero image */}
@@ -75,22 +49,6 @@ const Header = () => {
         role="img"
         aria-label="Modern Nairobi home at dusk"
       />
-
-      {/* Stat bar */}
-      <div className="max-w-[1240px] mx-auto px-6 sm:px-10 py-12 sm:py-14 flex flex-col sm:flex-row gap-8 sm:gap-0">
-        <div className="flex-1 sm:pr-8">
-          <div className="font-display text-4xl sm:text-5xl">120+</div>
-          <div className="text-sm text-muted-foreground mt-1">Homes ready to visit right now</div>
-        </div>
-        <div className="flex-1 sm:px-8 sm:border-l border-border">
-          <div className="font-display text-4xl sm:text-5xl">4.9</div>
-          <div className="text-sm text-muted-foreground mt-1">Buyer rating across 500+ moves</div>
-        </div>
-        <div className="flex-1 sm:pl-8 sm:border-l border-border">
-          <div className="font-display text-4xl sm:text-5xl">0</div>
-          <div className="text-sm text-muted-foreground mt-1">Pushy sales calls, ever</div>
-        </div>
-      </div>
 
       {isBookFormOpen && (
         <BookModal handleBookMenu={() => setIsBookFormOpen(false)} />

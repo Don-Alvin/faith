@@ -6,7 +6,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { BadgeCheck, MapPin, ArrowLeft, Bed, Bath, Square } from 'lucide-react';
+import { BadgeCheck, MapPin, ArrowLeft, Bed, Bath, Square, Home } from 'lucide-react';
 import BookForm from '@/components/Forms/BookForm';
 import type { Listing } from '@/types';
 
@@ -23,11 +23,17 @@ const ListingDetail = ({ listing }: ListingDetailProps) => {
         <div className="text-center py-20">
           <h2 className="text-2xl font-bold text-foreground mb-4">Property Not Found</h2>
           <p className="text-muted-foreground mb-8">The property you&apos;re looking for doesn&apos;t exist or has been removed.</p>
-          <Link href="/listings">
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-              Browse All Properties
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/listings">
+              <Button className="gradient-gold text-accent-foreground">
+                Browse All Properties
+              </Button>
+            </Link>
+            <Link href="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-[#b07d10] font-medium transition-colors">
+              <Home className="h-4 w-4" />
+              Back to Home
+            </Link>
+          </div>
         </div>
       </div>
     );
