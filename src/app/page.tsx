@@ -30,8 +30,8 @@ export default async function Home() {
       <Listings listings={listings} />
       <WhyLamona />
       <Blogs blogs={blogs} />
-      <Contact />
       <Testimonials />
+      <Contact />
     </div>
   );
 }

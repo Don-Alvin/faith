@@ -5,10 +5,9 @@ import Link from 'next/link';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { BadgeCheck, MapPin, ArrowLeft, Bed, Bath, Square, Calendar } from 'lucide-react';
+import { BadgeCheck, MapPin, ArrowLeft, Bed, Bath, Square } from 'lucide-react';
+import BookForm from '@/components/Forms/BookForm';
 import type { Listing } from '@/types';
 
 interface ListingDetailProps {
@@ -17,19 +16,6 @@ interface ListingDetailProps {
 
 const ListingDetail = ({ listing }: ListingDetailProps) => {
   const [currentImage, setCurrentImage] = useState<string | null>(listing?.imageUrl ?? null);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    date: '',
-    site: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
 
   if (!listing) {
     return (
@@ -161,70 +147,7 @@ const ListingDetail = ({ listing }: ListingDetailProps) => {
                 </div>
 
                 <CardContent className="p-6">
-                  <form className="space-y-4" method="POST" action="https://formsubmit.co/anadoomollo@zohomail.com">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-foreground font-medium">Full Name</Label>
-                      <Input
-                        className="border-border rounded-xl h-12 focus:border-accent focus:ring-ring/30"
-                        required
-                        name="name"
-                        type="text"
-                        id="name"
-                        placeholder="Enter your full name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-foreground font-medium">Email Address</Label>
-                      <Input
-                        className="border-border rounded-xl h-12 focus:border-accent focus:ring-ring/30"
-                        required
-                        name="email"
-                        type="email"
-                        id="email"
-                        placeholder="Enter your email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="date" className="text-foreground font-medium">Preferred Date</Label>
-                      <Input
-                        className="border-border rounded-xl h-12 focus:border-accent focus:ring-ring/30"
-                        required
-                        name="date"
-                        type="date"
-                        id="date"
-                        value={formData.date}
-                        onChange={handleInputChange}
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="site" className="text-foreground font-medium">Property</Label>
-                      <Input
-                        className="border-border rounded-xl h-12 bg-secondary focus:border-accent focus:ring-ring/30"
-                        required
-                        name="site"
-                        type="text"
-                        id="site"
-                        value={listing.name}
-                        readOnly
-                      />
-                    </div>
-
-                    <Button className="w-full gradient-gold text-accent-foreground py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-accent/25 transition-all duration-300">
-                      <Calendar className="mr-2 h-5 w-5" />
-                      Book Viewing
-                    </Button>
-                  </form>
-
-                  <p className="text-center text-muted-foreground text-sm mt-4">
-                    We&apos;ll contact you within 24 hours
-                  </p>
+                  <BookForm site={listing.name} />
                 </CardContent>
               </Card>
             </div>

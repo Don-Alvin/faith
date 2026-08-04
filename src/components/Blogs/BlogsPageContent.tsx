@@ -12,7 +12,7 @@ const BlogsPageContent = ({ blogs }: BlogsPageContentProps) => {
       <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {blogs.map((blog) => (
           <Link key={blog.id} href={`/blogs/${blog.title}`} className="group">
-            <Card className="relative overflow-hidden rounded-2xl border-0 shadow-xl hover-lift hover-glow bg-white h-full transition-all duration-300">
+            <Card className="relative overflow-hidden rounded-2xl border border-border shadow-xl hover-lift hover-glow bg-white h-full transition-all duration-300">
               <CardHeader className="relative p-0 overflow-hidden">
                 <div className="relative group">
                   <img
@@ -33,7 +33,7 @@ const BlogsPageContent = ({ blogs }: BlogsPageContentProps) => {
                   </div>
 
                   <div className="absolute top-4 left-4">
-                    <span className="bg-yellow-500/90 text-white px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">
+                    <span className="gradient-gold text-accent-foreground px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">
                       Real Estate
                     </span>
                   </div>
@@ -41,7 +41,7 @@ const BlogsPageContent = ({ blogs }: BlogsPageContentProps) => {
               </CardHeader>
 
               <CardContent className="p-4 sm:p-6 flex flex-col h-full">
-                <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                   <div className="flex items-center gap-1">
                     <Calendar className="h-3 w-3" />
                     <span>Dec 15, 2024</span>
@@ -53,20 +53,20 @@ const BlogsPageContent = ({ blogs }: BlogsPageContentProps) => {
                 </div>
 
                 <div className="flex-1">
-                  <h3 className="font-bold text-lg sm:text-xl text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                  <h3 className="font-bold text-lg sm:text-xl text-foreground mb-3 group-hover:text-accent-foreground transition-colors duration-300 line-clamp-2">
                     {blog.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed line-clamp-3 text-sm sm:text-base">
+                  <p className="text-muted-foreground leading-relaxed line-clamp-3 text-sm sm:text-base">
                     {blog.intro}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-gray-100">
+                <div className="mt-6 pt-4 border-t border-border">
                   <div className="flex items-center justify-between">
-                    <span className="text-primary font-semibold group-hover:text-yellow-600 transition-colors duration-300 text-sm sm:text-base">
+                    <span className="text-[#b07d10] font-semibold group-hover:text-accent transition-colors duration-300 text-sm sm:text-base">
                       Read More
                     </span>
-                    <ArrowRight className="h-4 w-4 text-primary group-hover:text-yellow-600 group-hover:translate-x-1 transition-all duration-300" />
+                    <ArrowRight className="h-4 w-4 text-[#b07d10] group-hover:text-accent group-hover:translate-x-1 transition-all duration-300" />
                   </div>
                 </div>
               </CardContent>
@@ -79,16 +79,16 @@ const BlogsPageContent = ({ blogs }: BlogsPageContentProps) => {
   return (
     <section className="container-responsive py-16 sm:py-20 lg:py-24 mt-16 sm:mt-20 lg:mt-24">
       <header className="text-center mb-12 sm:mb-16">
-        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
-          <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+        <div className="inline-flex items-center gap-2 bg-accent/15 text-[#b07d10] px-4 py-2 rounded-full text-sm font-semibold mb-6">
+          <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
           Expert Insights
         </div>
 
-        <h1 className="heading-responsive font-bold text-gray-900 mb-4 sm:mb-6">
-          Our <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">Blog</span>
+        <h1 className="heading-responsive font-bold text-foreground mb-4 sm:mb-6">
+          Our <span className="text-gradient">Blog</span>
         </h1>
 
-        <p className="text-responsive text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-responsive text-muted-foreground max-w-3xl mx-auto leading-relaxed">
           Stay informed with our expert analysis, market trends, and insider tips from the world of real estate.
         </p>
       </header>

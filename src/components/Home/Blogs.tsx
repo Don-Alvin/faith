@@ -51,7 +51,7 @@ const Blogs = ({ blogs }: BlogsProps) => {
             style={{ transitionDelay: `${index * 100}ms` }}
           >
             <Link href={`/blogs/${blog.title}`}>
-              <Card className='relative overflow-hidden rounded-2xl border-0 shadow-xl hover-lift hover-glow bg-white h-full'>
+              <Card className='relative overflow-hidden rounded-2xl border border-border shadow-xl hover-lift hover-glow bg-white h-full'>
                 {/* Image Container */}
                 <CardHeader className='relative p-0 overflow-hidden'>
                   <div className="relative group">
@@ -74,7 +74,7 @@ const Blogs = ({ blogs }: BlogsProps) => {
 
                     {/* Category Badge */}
                     <div className="absolute top-4 left-4">
-                      <span className="bg-yellow-500/90 text-white px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">
+                      <span className="gradient-gold text-accent-foreground px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm">
                         Real Estate
                       </span>
                     </div>
@@ -83,7 +83,7 @@ const Blogs = ({ blogs }: BlogsProps) => {
 
                 <CardContent className='p-6 flex flex-col h-full'>
                   {/* Meta Information */}
-                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                     <div className="flex items-center gap-1">
                       <Calendar className="h-3 w-3" />
                       <span>Dec 15, 2024</span>
@@ -96,21 +96,21 @@ const Blogs = ({ blogs }: BlogsProps) => {
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h3 className="font-bold text-xl text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                    <h3 className="font-bold text-xl text-foreground mb-3 group-hover:text-accent-foreground transition-colors duration-300 line-clamp-2">
                       {blog.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed line-clamp-3">
+                    <p className="text-muted-foreground leading-relaxed line-clamp-3">
                       {blog.intro}
                     </p>
                   </div>
 
                   {/* Read More */}
-                  <div className="mt-6 pt-4 border-t border-gray-100">
+                  <div className="mt-6 pt-4 border-t border-border">
                     <div className="flex items-center justify-between">
-                      <span className="text-primary font-semibold group-hover:text-yellow-600 transition-colors duration-300">
+                      <span className="text-[#b07d10] font-semibold group-hover:text-accent transition-colors duration-300">
                         Read More
                       </span>
-                      <ArrowRight className="h-4 w-4 text-primary group-hover:text-yellow-600 group-hover:translate-x-1 transition-all duration-300" />
+                      <ArrowRight className="h-4 w-4 text-[#b07d10] group-hover:text-accent group-hover:translate-x-1 transition-all duration-300" />
                     </div>
                   </div>
                 </CardContent>
@@ -122,20 +122,20 @@ const Blogs = ({ blogs }: BlogsProps) => {
   );
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 fade-in">
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 bg-accent/15 text-[#b07d10] px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
             Expert Insights
           </div>
 
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Our <span className="bg-gradient-to-r from-yellow-500 to-yellow-600 bg-clip-text text-transparent">Blogs</span>
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-foreground mb-6">
+            Our <span className="text-gradient">Blogs</span>
           </h2>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Stay informed with our expert analysis, market trends, and insider tips from the world of real estate.
           </p>
         </div>
@@ -148,7 +148,7 @@ const Blogs = ({ blogs }: BlogsProps) => {
         {/* CTA Section */}
         <div className="text-center fade-in">
           <Link href='/blogs'>
-            <Button className='btn-primary bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary text-white px-8 py-4 text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105'>
+            <Button className='btn-primary gradient-gold text-accent-foreground px-8 py-4 text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105'>
               Read All Articles
               <span className="ml-2">→</span>
             </Button>

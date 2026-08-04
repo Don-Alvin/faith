@@ -1,9 +1,27 @@
-import { FacebookIcon, Instagram, Mail, Phone, MapPin, ArrowRight } from "lucide-react"
+"use client"
+
+import { useState } from "react"
+import { FacebookIcon, Instagram, Mail, Phone, MapPin, ArrowRight, CheckCircle, Loader2 } from "lucide-react"
 import Link from "next/link"
 import BrandLogo from "./BrandLogo"
+import { submitForm } from "@/lib/formsubmit"
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
+  const [email, setEmail] = useState("")
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus('submitting')
+    try {
+      await submitForm({ email }, `New newsletter signup - ${email}`)
+      setStatus('success')
+      setEmail("")
+    } catch {
+      setStatus('error')
+    }
+  }
 
   const footerLinks = [
     {
@@ -126,16 +144,34 @@ const Footer = () => {
                 Get the latest property listings, market insights, and exclusive deals delivered to your inbox.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/50 focus:border-accent focus:ring-2 focus:ring-ring/30 transition-all duration-300"
-                />
-                <button className="px-6 py-3 gradient-gold text-accent-foreground font-semibold rounded-xl transition-all duration-300 hover:scale-105">
-                  Subscribe
-                </button>
-              </div>
+              {status === 'success' ? (
+                <div className="flex items-center justify-center gap-2 text-accent max-w-md mx-auto py-3">
+                  <CheckCircle className="h-5 w-5" />
+                  <span className="font-medium">Subscribed! Thanks for joining.</span>
+                </div>
+              ) : (
+                <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/50 focus:border-accent focus:ring-2 focus:ring-ring/30 transition-all duration-300"
+                  />
+                  <button
+                    type="submit"
+                    disabled={status === 'submitting'}
+                    className="px-6 py-3 gradient-gold text-accent-foreground font-semibold rounded-xl transition-all duration-300 hover:scale-105 disabled:opacity-70 disabled:hover:scale-100 flex items-center justify-center gap-2"
+                  >
+                    {status === 'submitting' ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
+                    {status === 'submitting' ? 'Sending...' : 'Subscribe'}
+                  </button>
+                </form>
+              )}
+              {status === 'error' && (
+                <p className="text-red-400 text-sm">Something went wrong. Please try again.</p>
+              )}
             </div>
           </div>
         </div>

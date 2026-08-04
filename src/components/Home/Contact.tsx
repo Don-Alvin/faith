@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react"
+import { Mail, Phone, MapPin, Send, CheckCircle, Loader2 } from "lucide-react"
+import { submitForm } from "@/lib/formsubmit"
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -15,6 +16,7 @@ const Contact = () => {
     number: '',
     message: ''
   })
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,6 +41,17 @@ const Contact = () => {
       ...formData,
       [e.target.name]: e.target.value
     })
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus('submitting')
+    try {
+      await submitForm(formData, `New contact inquiry from ${formData.name || 'website'}`)
+      setStatus('success')
+    } catch {
+      setStatus('error')
+    }
   }
 
   const contactInfo = [
@@ -141,7 +154,14 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-            <form className="glass p-8 rounded-3xl space-y-6" method="POST" action="https://formsubmit.co/anadoomollo@zohomail.com">
+            {status === 'success' ? (
+              <div className="glass p-8 rounded-3xl text-center py-16">
+                <CheckCircle className="h-12 w-12 text-green-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold text-white mb-2">Message sent</h3>
+                <p className="text-white/70">We&apos;ll get back to you within 24 hours.</p>
+              </div>
+            ) : (
+            <form className="glass p-8 rounded-3xl space-y-6" onSubmit={handleSubmit}>
               <div className="space-y-6">
                 <div className="space-y-2">
                   <Label htmlFor='name' className="text-white font-medium">Full Name</Label>
@@ -199,10 +219,25 @@ const Contact = () => {
                 </div>
               </div>
 
-              <Button className='w-full btn-primary gradient-gold text-accent-foreground py-4 text-lg font-semibold rounded-xl shadow-xl hover:shadow-accent/25 transition-all duration-300 hover:scale-[1.02]'>
-                <Send className="mr-2 h-5 w-5" />
-                Send Message
+              <Button type="submit" disabled={status === 'submitting'} className='w-full btn-primary gradient-gold text-accent-foreground py-4 text-lg font-semibold rounded-xl shadow-xl hover:shadow-accent/25 transition-all duration-300 hover:scale-[1.02] disabled:opacity-70 disabled:hover:scale-100'>
+                {status === 'submitting' ? (
+                  <>
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="mr-2 h-5 w-5" />
+                    Send Message
+                  </>
+                )}
               </Button>
+
+              {status === 'error' && (
+                <p className="text-center text-red-400 text-sm">
+                  Something went wrong sending your message. Please try again, or call us directly.
+                </p>
+              )}
 
               {/* Trust Badge */}
               <div className="flex items-center justify-center gap-2 text-white/50 text-sm pt-4">
@@ -210,6 +245,7 @@ const Contact = () => {
                 <span>Your information is secure and confidential</span>
               </div>
             </form>
+            )}
           </div>
         </div>
       </div>
