@@ -85,25 +85,6 @@ html {
   }
 }
 
-@keyframes marquee-left {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.marquee-left {
-  animation: marquee-left var(--marquee-duration, 32s) linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-left {
-    animation: none;
-  }
-}
-
 /* Vertical hero marquee (columns scroll up/down; content is duplicated so the loop is seamless) */
 @keyframes marquee-down {
   from { transform: translateY(-50%); }
