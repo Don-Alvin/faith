@@ -31,3 +31,9 @@ dist-ssr
 # AI harness tooling (impeccable design skills/hooks) - keep local
 .claude/
 .gemini/
+
+# Brainstorming visual-companion working dir
+.superpowers/
+
+# Impeccable design-hook config - keep local
+.impeccable/
