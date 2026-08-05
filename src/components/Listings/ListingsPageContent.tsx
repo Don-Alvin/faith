@@ -23,11 +23,11 @@ const ListingsPageContent = ({ listings }: ListingsPageContentProps) => {
   };
 
   const content = (
-      <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {listings.map((listing) => (
           <Card
             key={listing.id}
-            className="group relative overflow-hidden rounded-2xl border-0 shadow-xl hover-lift hover-glow bg-white transition-all duration-300"
+            className="group relative overflow-hidden rounded-2xl border-0 shadow-xl hover-lift hover-glow bg-card transition-all duration-300"
           >
             <CardHeader className="relative p-0 overflow-hidden">
               {listing.status && (
@@ -73,8 +73,8 @@ const ListingsPageContent = ({ listings }: ListingsPageContentProps) => {
                     <span className="text-xs sm:text-sm font-medium text-foreground">{listing.bedrooms}</span>
                   </div>
                   <div className="flex items-center gap-1 bg-accent/10 px-2 sm:px-3 py-1 rounded-full">
-                    <HandCoins className="h-3 w-3 sm:h-4 sm:w-4 text-[#b07d10]" />
-                    <span className="text-xs sm:text-sm font-semibold text-[#b07d10] truncate">{listing.price}</span>
+                    <HandCoins className="h-3 w-3 sm:h-4 sm:w-4 text-[#b07d10] dark:text-accent" />
+                    <span className="text-xs sm:text-sm font-semibold text-[#b07d10] dark:text-accent truncate">{listing.price}</span>
                   </div>
                 </div>
               </div>
@@ -104,7 +104,7 @@ const ListingsPageContent = ({ listings }: ListingsPageContentProps) => {
   return (
     <section className="container-responsive py-16 sm:py-20 lg:py-24 mt-16 sm:mt-20 lg:mt-24">
       <header className="text-center mb-12 sm:mb-16">
-        <div className="inline-flex items-center gap-2 bg-accent/15 text-[#b07d10] px-4 py-2 rounded-full text-sm font-semibold mb-6">
+        <div className="inline-flex items-center gap-2 bg-accent/15 text-[#b07d10] dark:text-accent px-4 py-2 rounded-full text-sm font-semibold mb-6">
           <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
           Featured Properties
         </div>

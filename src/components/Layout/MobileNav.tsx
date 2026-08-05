@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import MenuModal from '@/Modal/MenuModal'
 import BrandLogo from './BrandLogo'
+import ThemeToggle from './ThemeToggle'
 
 const MobileNav = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -33,7 +34,7 @@ const MobileNav = () => {
   ]
 
   return (
-    <nav className={`bg-white transition-all duration-500 ease-in-out ${isScrolled ? 'shadow-md' : ''} ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+    <nav className={`bg-background border-b border-border transition-all duration-500 ease-in-out ${isScrolled ? 'shadow-md' : ''} ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
       <div className="p-4 relative">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -41,13 +42,16 @@ const MobileNav = () => {
             <BrandLogo className="h-10" />
           </Link>
 
-          {/* Menu Button */}
-          <button
-            onClick={handleAuthMenu}
-            className="p-2 rounded-full bg-accent/15 border border-accent/30 transition-all duration-300 hover:bg-accent/25 hover:scale-110"
-          >
-            <MenuIcon className='text-[#b07d10] h-6 w-6' />
-          </button>
+          {/* Actions */}
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              onClick={handleAuthMenu}
+              className="p-2 rounded-full bg-accent/15 border border-accent/30 transition-all duration-300 hover:bg-accent/25 hover:scale-110"
+            >
+              <MenuIcon className='text-[#b07d10] dark:text-accent h-6 w-6' />
+            </button>
+          </div>
         </div>
 
         {/* Mobile menu */}

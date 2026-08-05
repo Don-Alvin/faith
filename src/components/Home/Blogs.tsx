@@ -37,7 +37,7 @@ const Blogs = ({ blogs }: BlogsProps) => {
 
   const limit = 6;
   const content = (
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {blogs.slice(0, limit)?.map((blog, index) => (
           <div
             key={blog.id}
@@ -51,7 +51,7 @@ const Blogs = ({ blogs }: BlogsProps) => {
             style={{ transitionDelay: `${index * 100}ms` }}
           >
             <Link href={`/blogs/${encodeURIComponent(blog.title)}`}>
-              <Card className='relative overflow-hidden rounded-2xl border border-border shadow-xl hover-lift hover-glow bg-white h-full'>
+              <Card className='relative overflow-hidden rounded-2xl border border-border shadow-xl hover-lift hover-glow bg-card h-full'>
                 {/* Image Container */}
                 <CardHeader className='relative p-0 overflow-hidden'>
                   <div className="relative group">
@@ -107,10 +107,10 @@ const Blogs = ({ blogs }: BlogsProps) => {
                   {/* Read More */}
                   <div className="mt-6 pt-4 border-t border-border">
                     <div className="flex items-center justify-between">
-                      <span className="text-[#b07d10] font-semibold group-hover:text-accent transition-colors duration-300">
+                      <span className="text-[#b07d10] dark:text-accent font-semibold group-hover:text-accent transition-colors duration-300">
                         Read More
                       </span>
-                      <ArrowRight className="h-4 w-4 text-[#b07d10] group-hover:text-accent group-hover:translate-x-1 transition-all duration-300" />
+                      <ArrowRight className="h-4 w-4 text-[#b07d10] dark:text-accent group-hover:text-accent group-hover:translate-x-1 transition-all duration-300" />
                     </div>
                   </div>
                 </CardContent>
@@ -126,7 +126,7 @@ const Blogs = ({ blogs }: BlogsProps) => {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-accent/15 text-[#b07d10] px-4 py-2 rounded-full text-sm font-semibold mb-6">
+          <div className="inline-flex items-center gap-2 bg-accent/15 text-[#b07d10] dark:text-accent px-4 py-2 rounded-full text-sm font-semibold mb-6">
             <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
             Expert Insights
           </div>

@@ -36,9 +36,9 @@ const Header = ({ listings }: HeaderProps) => {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 pb-12 lg:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 pb-12 lg:pb-20">
           {/* Left: content, top-aligned with bottom-anchored CTAs to mirror the image column's height */}
-          <div className="px-6 sm:px-10 lg:px-12 flex flex-col lg:justify-between">
+          <div className="min-w-0 px-6 sm:px-10 lg:px-12 flex flex-col lg:justify-between">
             <div>
               <h1 className="font-display text-4xl sm:text-6xl lg:text-6xl leading-[0.98] tracking-tight mb-6 max-w-xl">
                 Homes chosen with the same care you&apos;ll live in them.
@@ -66,7 +66,7 @@ const Header = ({ listings }: HeaderProps) => {
           </div>
 
           {/* Right: scrolling house photos, spanning the same top-to-bottom height as the left column */}
-          <div className="flex flex-col gap-3 justify-center h-[360px] sm:h-[480px] lg:h-auto lg:gap-0 lg:justify-between py-8 lg:py-0">
+          <div className="min-w-0 flex flex-col gap-3 justify-center h-[360px] sm:h-[480px] lg:h-auto lg:gap-0 lg:justify-between py-8 lg:py-0">
             {rows.map((row, rowIndex) => (
               <div key={rowIndex} className="overflow-hidden">
                 <div

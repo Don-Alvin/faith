@@ -66,7 +66,7 @@ const BlogDetail = ({ blog }: BlogDetailProps) => {
           </h1>
 
           <div className="flex items-center gap-2 mb-8">
-            <span className="bg-accent/15 text-[#b07d10] px-3 py-1 rounded-full text-sm font-semibold">
+            <span className="bg-accent/15 text-[#b07d10] dark:text-accent px-3 py-1 rounded-full text-sm font-semibold">
               Real Estate
             </span>
           </div>
