@@ -97,13 +97,13 @@ const Header = ({ listings }: HeaderProps) => {
       />
 
       {/* Layer 3: centered content */}
-      <div className="relative z-10 mx-auto w-full max-w-5xl px-6 sm:px-10 py-20 flex flex-col items-center text-center gap-[clamp(22px,4vh,52px)]">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 sm:px-10 py-20 flex flex-col items-center text-center gap-[clamp(22px,4vh,52px)]">
         <span className="inline-flex items-center gap-2 border border-white/25 rounded-full px-5 py-2 text-xs sm:text-sm uppercase tracking-[0.08em] text-white/90 bg-[#101a15]/30 backdrop-blur-sm">
           <span className="w-2 h-2 rounded-full bg-accent" />
           Best properties in Kenya
         </span>
 
-        <h1 className="font-display font-extrabold leading-[1.05] tracking-[-0.03em] text-[clamp(30px,6vw,64px)] [text-shadow:0_2px_30px_rgba(0,0,0,0.4)]">
+        <h1 className="font-display font-extrabold leading-[1.05] tracking-[-0.03em] text-[clamp(30px,5.6vw,64px)] [text-shadow:0_2px_30px_rgba(0,0,0,0.4)]">
           Homes chosen with the same<br className="hidden md:block" /> care you&apos;ll live in them.
         </h1>
 
