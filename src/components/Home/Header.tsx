@@ -10,78 +10,120 @@ interface HeaderProps {
 }
 
 const FALLBACK_IMAGES = ['/images/hero.jpg', '/images/hero2.jpg']
-const ROW_DURATIONS = ['40s', '32s', '25s']
 
-function marqueeRow(images: string[], fallback: string[]) {
-  const base = images.length ? images : fallback
-  // Duplicate so translateX(-50%) loops back to an identical frame.
-  return [...base, ...base]
+// One entry per column. Directions alternate; durations vary so columns never
+// move in lockstep. Desktop shows all 4; mobile shows the first 2 (see JSX).
+const COLUMNS = [
+  { dir: 'down' as const, duration: '27s' },
+  { dir: 'up' as const, duration: '34s' },
+  { dir: 'down' as const, duration: '23s' },
+  { dir: 'up' as const, duration: '30s' },
+]
+
+// Varied portrait heights (px) cycled down each column for a masonry wall.
+const HEIGHTS = [230, 300, 190, 260, 210, 280]
+
+// Flatten every listing's imageUrl + moreImages into a de-duplicated pool.
+function collectPhotos(listings: Listing[]): string[] {
+  const pool: string[] = []
+  for (const listing of listings) {
+    if (listing.imageUrl) pool.push(listing.imageUrl)
+    for (const more of listing.moreImages ?? []) {
+      if (more.imageUrl) pool.push(more.imageUrl)
+    }
+  }
+  const deduped = Array.from(new Set(pool))
+  return deduped.length ? deduped : FALLBACK_IMAGES
+}
+
+// Round-robin the pool into `count` columns of `perCol` photos each,
+// cycling the pool when it is smaller than the number of slots.
+function buildColumns(pool: string[], count: number, perCol: number): string[][] {
+  const cols: string[][] = Array.from({ length: count }, () => [])
+  let i = 0
+  for (let c = 0; c < count; c++) {
+    for (let r = 0; r < perCol; r++) {
+      cols[c].push(pool[i % pool.length])
+      i++
+    }
+  }
+  return cols
 }
 
 const Header = ({ listings }: HeaderProps) => {
   const [isBookFormOpen, setIsBookFormOpen] = useState(false)
 
-  const photos = listings.map((listing) => listing.imageUrl).filter(Boolean).slice(0, 12)
-  const rows = [0, 1, 2].map((rowIndex) =>
-    marqueeRow(photos.filter((_, i) => i % 3 === rowIndex), FALLBACK_IMAGES)
-  )
+  const pool = collectPhotos(listings)
+  const columns = buildColumns(pool, COLUMNS.length, HEIGHTS.length)
 
   return (
-    <section className="gradient-primary text-white overflow-hidden">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="px-6 sm:px-10 lg:px-12 pt-16 sm:pt-20 lg:pt-20">
-          <div className="inline-flex items-center gap-2 border border-white/15 rounded-full px-4 py-2 text-xs sm:text-sm text-white/70 mb-7">
-            <span className="w-[7px] h-[7px] rounded-full bg-accent inline-block" />
-            Nairobi&apos;s prime neighborhoods · verified listings
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 pb-12 lg:pb-20">
-          {/* Left: content, top-aligned with bottom-anchored CTAs to mirror the image column's height */}
-          <div className="min-w-0 px-6 sm:px-10 lg:px-12 flex flex-col lg:justify-between">
-            <div>
-              <h1 className="font-display text-4xl sm:text-6xl lg:text-6xl leading-[0.98] tracking-tight mb-6 max-w-xl">
-                Homes chosen with the same care you&apos;ll live in them.
-              </h1>
-
-              <p className="text-lg sm:text-xl text-white/70 leading-relaxed max-w-lg mb-8 lg:mb-0">
-                Lamona Realtors connects home buyers with vetted properties in Runda, Karen, Westlands, Lavington and Kilimani. Honest guidance, no pressure, and a site visit booked in minutes.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-              <button
-                onClick={() => setIsBookFormOpen(true)}
-                className="gradient-gold text-accent-foreground rounded-lg px-8 py-4 text-base font-bold transition-all duration-300 hover:scale-105"
+    <section className="relative overflow-hidden gradient-primary text-white min-h-[88vh] flex items-center">
+      {/* Layer 1: vertical marquee columns */}
+      <div className="absolute inset-0 flex gap-2.5 px-2.5" aria-hidden="true">
+        {columns.map((col, c) => {
+          const { dir, duration } = COLUMNS[c]
+          const doubled = [...col, ...col] // duplicate for a seamless translateY loop
+          return (
+            <div
+              key={c}
+              className={`flex-1 overflow-hidden ${c >= 2 ? 'hidden md:block' : ''}`}
+            >
+              <div
+                className={`flex flex-col gap-2.5 ${dir === 'down' ? 'marquee-col-down' : 'marquee-col-up'}`}
+                style={{ '--marquee-duration': duration } as React.CSSProperties}
               >
-                Book a site visit
-              </button>
-              <Link
-                href="/listings"
-                className="border border-white/20 text-white rounded-lg px-8 py-4 text-base font-medium hover:bg-white/10 transition-all duration-300"
-              >
-                Browse all homes
-              </Link>
-            </div>
-          </div>
-
-          {/* Right: scrolling house photos, spanning the same top-to-bottom height as the left column */}
-          <div className="min-w-0 flex flex-col gap-3 justify-center h-[360px] sm:h-[480px] lg:h-auto lg:gap-0 lg:justify-between py-8 lg:py-0">
-            {rows.map((row, rowIndex) => (
-              <div key={rowIndex} className="overflow-hidden">
-                <div
-                  className="flex gap-3 w-max marquee-left"
-                  style={{ "--marquee-duration": ROW_DURATIONS[rowIndex] } as React.CSSProperties}
-                >
-                  {row.map((src, i) => (
-                    <div key={i} className="w-36 sm:w-52 h-24 sm:h-32 rounded-2xl overflow-hidden flex-shrink-0">
-                      <img src={src} alt="" className="w-full h-full object-cover" />
-                    </div>
-                  ))}
-                </div>
+                {doubled.map((src, i) => (
+                  <div
+                    key={i}
+                    className="w-full rounded-xl overflow-hidden flex-shrink-0"
+                    style={{ height: HEIGHTS[i % HEIGHTS.length] }}
+                  >
+                    <img src={src} alt="" className="w-full h-full object-cover" />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Layer 2: balanced overlay (dark top/bottom, lighter middle, soft radial scrim) */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(180deg, rgba(16,26,21,.80), rgba(16,26,21,.34) 34%, rgba(16,26,21,.34) 66%, rgba(16,26,21,.90)), radial-gradient(74% 58% at 50% 50%, rgba(16,26,21,.60), rgba(16,26,21,0) 80%)',
+        }}
+      />
+
+      {/* Layer 3: centered content */}
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 sm:px-10 py-20 flex flex-col items-center text-center gap-[clamp(22px,4vh,52px)]">
+        <span className="inline-flex items-center gap-2 border border-white/25 rounded-full px-5 py-2 text-xs sm:text-sm uppercase tracking-[0.08em] text-white/90 bg-[#101a15]/30 backdrop-blur-sm">
+          <span className="w-2 h-2 rounded-full bg-accent" />
+          Best properties in Kenya
+        </span>
+
+        <h1 className="font-display font-extrabold leading-[1.05] tracking-[-0.03em] text-[clamp(30px,5.6vw,64px)] [text-shadow:0_2px_30px_rgba(0,0,0,0.4)]">
+          Homes chosen with the same<br className="hidden md:block" /> care you&apos;ll live in them.
+        </h1>
+
+        <p className="text-white/80 max-w-[58ch] leading-relaxed text-[clamp(14px,1.5vw,20px)] [text-shadow:0_1px_12px_rgba(0,0,0,0.4)]">
+          Vetted homes in Runda, Karen, Westlands, Lavington and Kilimani. Honest guidance, no pressure, and a site visit booked in minutes.
+        </p>
+
+        <div className="flex flex-wrap gap-4 justify-center">
+          <button
+            onClick={() => setIsBookFormOpen(true)}
+            className="gradient-gold text-accent-foreground rounded-xl px-7 py-4 text-base font-bold transition-all duration-300 hover:scale-105"
+          >
+            Book a site visit
+          </button>
+          <Link
+            href="/listings"
+            className="border border-white/30 text-white rounded-xl px-7 py-4 text-base font-medium bg-[#101a15]/20 hover:bg-white/10 transition-all duration-300"
+          >
+            Browse all homes
+          </Link>
         </div>
       </div>
 
