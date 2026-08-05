@@ -104,6 +104,26 @@ html {
   }
 }
 
+/* Vertical hero marquee (columns scroll up/down; content is duplicated so the loop is seamless) */
+@keyframes marquee-down {
+  from { transform: translateY(-50%); }
+  to   { transform: translateY(0); }
+}
+@keyframes marquee-up {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+.marquee-col-down {
+  animation: marquee-down var(--marquee-duration, 28s) linear infinite;
+}
+.marquee-col-up {
+  animation: marquee-up var(--marquee-duration, 28s) linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-col-down,
+  .marquee-col-up { animation: none; }
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
 }
