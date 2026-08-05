@@ -24,7 +24,7 @@ const Listings = ({ listings }: ListingsProps) => {
   const content = (
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {listings.slice(0, limit)?.map((listing) => (
-          <div key={listing.id} className="group bg-white rounded-2xl overflow-hidden border border-border">
+          <div key={listing.id} className="group bg-card rounded-2xl overflow-hidden border border-border">
             <Link href={listingHref(listing)} className="block">
               <div className="relative h-[210px] overflow-hidden">
                 {listing.status && (
@@ -57,7 +57,7 @@ const Listings = ({ listings }: ListingsProps) => {
                 </span>
                 <button
                   onClick={() => handleBookMenu(listing)}
-                  className="text-sm font-semibold text-[#b07d10] hover:text-accent transition-colors"
+                  className="text-sm font-semibold text-[#b07d10] dark:text-accent hover:text-accent transition-colors"
                 >
                   Book a visit →
                 </button>
@@ -76,7 +76,7 @@ const Listings = ({ listings }: ListingsProps) => {
           <h2 className="font-display text-2xl sm:text-4xl font-bold text-foreground">
             Standout homes right now
           </h2>
-          <Link href='/listings' className="text-sm text-[#b07d10] font-semibold hover:text-accent transition-colors whitespace-nowrap">
+          <Link href='/listings' className="text-sm text-[#b07d10] dark:text-accent font-semibold hover:text-accent transition-colors whitespace-nowrap">
             View all listings →
           </Link>
         </div>

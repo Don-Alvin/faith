@@ -36,7 +36,7 @@ const WhyLamona = () => {
     <>
       <div className="max-w-[1240px] mx-auto px-6 sm:px-10 py-14 sm:py-16">
         <div className="mb-9">
-          <div className="text-xs sm:text-sm uppercase tracking-widest text-[#b07d10] font-semibold mb-3">
+          <div className="text-xs sm:text-sm uppercase tracking-widest text-[#b07d10] dark:text-accent font-semibold mb-3">
             Why Lamona
           </div>
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground">
@@ -56,7 +56,7 @@ const WhyLamona = () => {
       <div className="bg-secondary">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-10 py-14 sm:py-16">
           <div className="mb-9">
-            <div className="text-xs sm:text-sm uppercase tracking-widest text-[#b07d10] font-semibold mb-3">
+            <div className="text-xs sm:text-sm uppercase tracking-widest text-[#b07d10] dark:text-accent font-semibold mb-3">
               How it works
             </div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground">
@@ -66,7 +66,7 @@ const WhyLamona = () => {
           <div className="grid sm:grid-cols-3 gap-8">
             {steps.map((step) => (
               <div key={step.number}>
-                <div className="text-sm font-bold text-[#b07d10] mb-2.5">{step.number}</div>
+                <div className="text-sm font-bold text-[#b07d10] dark:text-accent mb-2.5">{step.number}</div>
                 <div className="font-display text-lg font-semibold text-foreground mb-2">{step.title}</div>
                 <div className="text-sm leading-relaxed text-muted-foreground">{step.body}</div>
               </div>

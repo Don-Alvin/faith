@@ -68,7 +68,7 @@ const ListingDetail = ({ listing }: ListingDetailProps) => {
                   <span className="text-lg">{listing.location || listing.name}</span>
                 </div>
               </div>
-              <div className="text-2xl sm:text-3xl font-bold text-[#b07d10]">
+              <div className="text-2xl sm:text-3xl font-bold text-[#b07d10] dark:text-accent">
                 {listing.price}
               </div>
             </div>
