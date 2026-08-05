@@ -34,7 +34,7 @@ export default function About() {
       </div>
 
       {/* Story */}
-      <div className="max-w-[1240px] mx-auto px-6 sm:px-10 py-14 sm:py-16 grid md:grid-cols-2 gap-10 sm:gap-14 items-center">
+      <div className="max-w-[1240px] mx-auto px-6 sm:px-10 py-14 sm:py-16 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-14 items-center">
         <div className="h-72 sm:h-80 rounded-2xl gradient-secondary" />
         <div>
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-4">Why we started</h2>

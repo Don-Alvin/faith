@@ -104,9 +104,9 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Contact Information */}
-          <div className={`space-y-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+          <div className={`min-w-0 space-y-8 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             <div>
               <h3 className="font-display text-3xl font-bold text-white mb-6">
                 Let&apos;s Start a Conversation
@@ -126,9 +126,9 @@ const Contact = () => {
                   <div className="flex-shrink-0 w-12 h-12 gradient-gold rounded-xl flex items-center justify-center">
                     <item.icon className="h-6 w-6 text-accent-foreground" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <h4 className="font-semibold text-white text-lg mb-1">{item.title}</h4>
-                    <p className="text-accent font-medium mb-1">{item.content}</p>
+                    <p className="text-accent font-medium mb-1 break-words">{item.content}</p>
                     <p className="text-white/50 text-sm">{item.description}</p>
                   </div>
                 </div>
@@ -153,7 +153,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+          <div className={`min-w-0 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
             {status === 'success' ? (
               <div className="glass p-8 rounded-3xl text-center py-16">
                 <CheckCircle className="h-12 w-12 text-green-400 mx-auto mb-4" />

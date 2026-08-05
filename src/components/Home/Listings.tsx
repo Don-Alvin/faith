@@ -22,7 +22,7 @@ const Listings = ({ listings }: ListingsProps) => {
 
   const limit = 6;
   const content = (
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {listings.slice(0, limit)?.map((listing) => (
           <div key={listing.id} className="group bg-card rounded-2xl overflow-hidden border border-border">
             <Link href={listingHref(listing)} className="block">
@@ -50,14 +50,14 @@ const Listings = ({ listings }: ListingsProps) => {
               </Link>
               <div className="text-sm text-muted-foreground mb-4">{listing.bedrooms} bd{listing.location ? ` · ${listing.location}` : ''}</div>
 
-              <div className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground flex items-center gap-1">
-                  <MapPin className="h-3.5 w-3.5" />
-                  {listing.location || listing.name}
+              <div className="space-y-3">
+                <span className="text-xs text-muted-foreground flex items-start gap-1">
+                  <MapPin className="h-3.5 w-3.5 flex-shrink-0 mt-0.5" />
+                  <span className="min-w-0">{listing.location || listing.name}</span>
                 </span>
                 <button
                   onClick={() => handleBookMenu(listing)}
-                  className="text-sm font-semibold text-[#b07d10] dark:text-accent hover:text-accent transition-colors"
+                  className="text-sm font-semibold text-[#b07d10] dark:text-accent hover:text-accent transition-colors whitespace-nowrap"
                 >
                   Book a visit →
                 </button>

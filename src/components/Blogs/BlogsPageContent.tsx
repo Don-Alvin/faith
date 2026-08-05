@@ -9,7 +9,7 @@ interface BlogsPageContentProps {
 
 const BlogsPageContent = ({ blogs }: BlogsPageContentProps) => {
   const content = (
-      <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {blogs.map((blog) => (
           <Link key={blog.id} href={`/blogs/${encodeURIComponent(blog.title)}`} className="group">
             <Card className="relative overflow-hidden rounded-2xl border border-border shadow-xl hover-lift hover-glow bg-card h-full transition-all duration-300">

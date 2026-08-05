@@ -56,9 +56,9 @@ const ListingDetail = ({ listing }: ListingDetailProps) => {
           </Link>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Property Details - Left Column */}
-          <div className="lg:col-span-2 space-y-6 sm:space-y-8">
+          <div className="min-w-0 lg:col-span-2 space-y-6 sm:space-y-8">
             {/* Property Header */}
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
               <div className="space-y-3">
@@ -144,7 +144,7 @@ const ListingDetail = ({ listing }: ListingDetailProps) => {
           </div>
 
           {/* Booking Form - Right Column */}
-          <div className="lg:col-span-1">
+          <div className="min-w-0 lg:col-span-1">
             <div className="sticky top-24">
               <Card className="shadow-xl border-0 rounded-2xl overflow-hidden">
                 <div className="gradient-primary p-6 text-white">

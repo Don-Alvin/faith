@@ -37,7 +37,7 @@ const Blogs = ({ blogs }: BlogsProps) => {
 
   const limit = 6;
   const content = (
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {blogs.slice(0, limit)?.map((blog, index) => (
           <div
             key={blog.id}

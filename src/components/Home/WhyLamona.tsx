@@ -43,7 +43,7 @@ const WhyLamona = () => {
             Why buyers choose Lamona
           </h2>
         </div>
-        <div className="grid sm:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
           {reasons.map((reason) => (
             <div key={reason.title}>
               <div className="font-display text-xl font-bold text-foreground mb-2.5">{reason.title}</div>
@@ -63,7 +63,7 @@ const WhyLamona = () => {
               From search to site visit in three steps
             </h2>
           </div>
-          <div className="grid sm:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {steps.map((step) => (
               <div key={step.number}>
                 <div className="text-sm font-bold text-[#b07d10] dark:text-accent mb-2.5">{step.number}</div>
