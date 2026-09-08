@@ -37,3 +37,6 @@ dist-ssr
 
 # Impeccable design-hook config - keep local
 .impeccable/
+
+# Internal launch checklist - keep local, not for the repo
+lamona-launch-checklist.md
