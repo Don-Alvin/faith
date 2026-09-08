@@ -1,7 +1,7 @@
 import type { Listing } from "@/types";
 import { listingHref } from "@/lib/slug";
 
-const SITE_URL = "https://lamonarealtors.com";
+const SITE_URL = "https://www.lamonarealtors.com";
 
 // Pulls a bare KES number out of price strings like "KES 95,000,000" or
 // "KES 20.5M". Some listings pack multiple sub-prices into one field (e.g.

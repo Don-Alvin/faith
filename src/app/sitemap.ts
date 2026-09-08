@@ -3,7 +3,7 @@ import { getListings } from "@/api/listingsApi";
 import { getBlogs } from "@/api/blogsApi";
 import { listingHref } from "@/lib/slug";
 
-const SITE_URL = "https://lamonarealtors.com";
+const SITE_URL = "https://www.lamonarealtors.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [listings, blogs] = await Promise.all([

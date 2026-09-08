@@ -14,7 +14,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lamonarealtors.com"),
+  metadataBase: new URL("https://www.lamonarealtors.com"),
   title: {
     default: "Lamona Realtors - Find Your Dream Home in Kenya",
     template: "%s | Lamona Realtors",
@@ -30,11 +30,11 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://lamonarealtors.com/",
+    url: "https://www.lamonarealtors.com/",
     title: "Lamona Realtors - Find Your Dream Home in Kenya",
     description:
       "Discover exceptional properties with Lamona Realtors - Kenya's premier real estate agency. Expert guidance for buying, selling, and investing in prime real estate.",
-    images: [{ url: "https://lamonarealtors.com/images/logo_whitebg.png" }],
+    images: [{ url: "https://www.lamonarealtors.com/images/logo_whitebg.png" }],
     siteName: "Lamona Realtors",
   },
   twitter: {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Lamona Realtors - Find Your Dream Home in Kenya",
     description:
       "Discover exceptional properties with Lamona Realtors - Kenya's premier real estate agency. Expert guidance for buying, selling, and investing in prime real estate.",
-    images: ["https://lamonarealtors.com/images/logo_whitebg.png"],
+    images: ["https://www.lamonarealtors.com/images/logo_whitebg.png"],
   },
   other: {
     "theme-color": "#101a15",

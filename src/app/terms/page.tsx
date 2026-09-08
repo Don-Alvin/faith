@@ -23,7 +23,7 @@ export default function TermsPage() {
           <h2 className="font-display text-xl font-bold text-foreground mb-3">1. Who we are</h2>
           <p>
             Lamona Realtors (&quot;Lamona&quot;, &quot;we&quot;, &quot;us&quot;) is a real estate
-            agency based in Nairobi, Kenya, operating this website at lamonarealtors.com. By
+            agency based in Nairobi, Kenya, operating this website at www.lamonarealtors.com. By
             browsing this site, requesting a site visit, or otherwise contacting us through it,
             you agree to these terms.
           </p>
