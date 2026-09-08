@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 const SITE_NAME = "Lamona Realtors";
-const SITE_URL = "https://www.lamonarealtors.com";
+const SITE_URL = "https://www.lamonarealtors.co.ke";
 const DEFAULT_DESCRIPTION =
   "Find your dream property with Lamona Realtors - Kenya's premier real estate agency";
 const DEFAULT_IMAGE = "/images/logo_whitebg.png";

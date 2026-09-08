@@ -31,7 +31,7 @@ export default function CookiePolicyPage() {
         <section>
           <h2 className="font-display text-xl font-bold text-foreground mb-3">What we actually use</h2>
           <p className="mb-4">
-            We keep this simple: the only cookies set on www.lamonarealtors.com come from{" "}
+            We keep this simple: the only cookies set on www.lamonarealtors.co.ke come from{" "}
             <strong>Google Analytics</strong> (via Firebase Analytics), which we use to
             understand how many people visit the site, which pages and listings get the most
             interest, and how visitors generally navigate the site. This helps us know which
