@@ -5,8 +5,8 @@ const nextConfig = {
     return [
       {
         source: "/:path*",
-        has: [{ type: "host", value: "lamonarealtors.com" }],
-        destination: "https://www.lamonarealtors.com/:path*",
+        has: [{ type: "host", value: "lamonarealtors.co.ke" }],
+        destination: "https://www.lamonarealtors.co.ke/:path*",
         permanent: true,
       },
     ];
