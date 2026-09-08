@@ -3,6 +3,7 @@ import { buildMetadata } from "@/lib/seo";
 import { getListings } from "@/api/listingsApi";
 import { getBlogs } from "@/api/blogsApi";
 import Header from "@/components/Home/Header";
+import StatBanner from "@/components/Home/StatBanner";
 import Listings from "@/components/Home/Listings";
 import WhyLamona from "@/components/Home/WhyLamona";
 import Blogs from "@/components/Home/Blogs";
@@ -27,6 +28,7 @@ export default async function Home() {
   return (
     <div>
       <Header listings={listings} />
+      <StatBanner />
       <Listings listings={listings} />
       <WhyLamona />
       <Blogs blogs={blogs} />

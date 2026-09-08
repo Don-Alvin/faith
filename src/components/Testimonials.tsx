@@ -1,5 +1,3 @@
-import { Star } from "lucide-react";
-
 const reviews = [
   {
     quote:
@@ -18,24 +16,68 @@ const reviews = [
   },
 ];
 
+// Each column shows all three reviews in a different order, then duplicated so
+// the vertical marquee loops seamlessly. (We only have three real reviews, so
+// they repeat down the wall until more genuine reviews are added.)
+const columns = [
+  { order: [0, 1, 2], dir: "down" as const, duration: "36s" },
+  { order: [1, 2, 0], dir: "up" as const, duration: "44s" },
+  { order: [2, 0, 1], dir: "down" as const, duration: "40s" },
+];
+
+const TestimonialCard = ({ quote, name }: { quote: string; name: string }) => (
+  <div className="rounded-2xl border border-white/10 bg-white/[0.045] p-6">
+    <div className="font-display text-4xl leading-none text-accent h-5">&rdquo;</div>
+    <p className="mt-3.5 text-[15px] leading-relaxed text-white/90">{quote}</p>
+    <div className="mt-4 text-sm font-bold text-white">{name}</div>
+  </div>
+);
+
 const Testimonials = () => {
   return (
-    <div className="max-w-[1240px] mx-auto px-6 sm:px-10 py-14 sm:py-16">
-      <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-7">What buyers say</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        {reviews.map((review) => (
-          <div key={review.name} className="bg-card border border-border rounded-2xl p-6">
-            <div className="flex gap-0.5 text-accent mb-3">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-4 w-4 fill-accent text-accent" />
-              ))}
-            </div>
-            <p className="text-[15px] text-foreground leading-relaxed mb-4">{review.quote}</p>
-            <div className="text-sm font-semibold text-muted-foreground">{review.name}</div>
-          </div>
-        ))}
+    <section className="gradient-primary text-white overflow-hidden py-20">
+      <div className="max-w-[1240px] mx-auto px-6 sm:px-10">
+        <div className="inline-flex items-center gap-2.5 text-accent text-xs font-bold tracking-[0.18em] uppercase mb-4">
+          <span className="w-6 h-0.5 bg-accent inline-block" />
+          Testimonials
+        </div>
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-2.5">
+          What buyers say
+        </h2>
+        <p className="text-white/65 text-lg max-w-2xl mb-10">
+          What clients across Nairobi say about buying with Lamona.
+        </p>
+
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 h-[560px] overflow-hidden"
+          style={{
+            maskImage:
+              "linear-gradient(to bottom, transparent, #000 13%, #000 87%, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, transparent, #000 13%, #000 87%, transparent)",
+          }}
+        >
+          {columns.map((col, ci) => {
+            const cards = col.order.map((i) => reviews[i]);
+            const doubled = [...cards, ...cards];
+            return (
+              <div key={ci} className={`overflow-hidden ${ci === 2 ? "hidden lg:block" : ""}`}>
+                <div
+                  className={`flex flex-col gap-5 ${
+                    col.dir === "down" ? "marquee-col-down" : "marquee-col-up"
+                  }`}
+                  style={{ "--marquee-duration": col.duration } as React.CSSProperties}
+                >
+                  {doubled.map((r, i) => (
+                    <TestimonialCard key={i} quote={r.quote} name={r.name} />
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
